@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Empower for Development Ghana — Youth-Led Change</title>
+  <meta name="description" content="E4D Ghana empowers youth to build climate-resilient livelihoods and active citizenship across Northern Ghana through education, peacebuilding, and digital skills." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: #1a1a2e; background: #faf9f6; line-height: 1.7; overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --green: #00A85A; --green-light: #52b788; --green-pale: #d8f3dc;
+      --gold: #c9a84c; --gold-light: #f4d98e;
+      --ink: #1a1a2e; --ink-soft: #3d3d5c;
+      --cream: #faf9f6; --white: #ffffff;
+      --border: rgba(45,106,79,0.15);
+      --shadow: 0 4px 32px rgba(26,26,46,0.08);
+      --shadow-lg: 0 16px 64px rgba(26,26,46,0.14);
+    }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 96px 0; }
+    .section-sm { padding: 64px 0; }
+
+    .tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); background: var(--green-pale); padding: 4px 14px; border-radius: 40px; margin-bottom: 16px; }
+    .heading-xl { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 5.5vw, 4.6rem); font-weight: 700; line-height: 1.1; color: var(--ink); }
+    .heading-lg { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 3.8vw, 3rem); font-weight: 600; line-height: 1.2; color: var(--ink); }
+    .heading-md { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.25rem, 2vw, 1.7rem); font-weight: 600; line-height: 1.3; }
+    .lead { font-size: 1.1rem; color: var(--ink-soft); line-height: 1.85; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.03em; cursor: pointer; transition: all 0.25s ease; border: 2px solid transparent; }
+    .btn-primary { background: #00A85A; color: var(--white); border-color: #00A85A; }
+    .btn-primary:hover { background: #008a48; border-color: #008a48; transform: translateY(-1px); box-shadow: var(--shadow); }
+    .btn-outline { background: transparent; color: var(--green); border-color: var(--green); }
+    .btn-outline:hover { background: var(--green); color: var(--white); transform: translateY(-1px); }
+    .btn-gold { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .btn-gold:hover { background: #a8872e; border-color: #a8872e; transform: translateY(-1px); box-shadow: var(--shadow); }
+    .btn-white { background: var(--white); color: var(--green); border-color: var(--white); font-weight: 700; }
+    .btn-white:hover { background: var(--green-pale); border-color: var(--green-pale); transform: translateY(-1px); }
+    .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.6); }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+
+    .divider { width: 60px; height: 3px; background: var(--gold); margin: 20px 0 32px; }
+    .divider-center { margin-left: auto; margin-right: auto; }
+
+    /* ── NAVBAR ── */
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(250,249,246,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s; }
+    #navbar.scrolled { box-shadow: var(--shadow); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 90px; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo-img { height: 72px; width: auto; display: block; object-fit: contain; max-width: 260px; background: transparent; filter: drop-shadow(0 2px 8px rgba(45,106,79,0.18)); }
+    .logo-mark { width: 44px; height: 44px; background: var(--green); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .logo-mark svg { width: 26px; height: 26px; }
+    .logo-text-wrap { display: flex; flex-direction: column; line-height: 1.2; }
+    .logo-primary { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 700; color: var(--ink); }
+    .logo-sub { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--ink-soft); padding: 6px 13px; border-radius: 4px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: var(--green); background: var(--green-pale); }
+    .nav-cta { margin-left: 10px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: all 0.3s; }
+    .mobile-menu { display: none; position: fixed; top: 90px; left: 0; right: 0; background: var(--cream); border-bottom: 1px solid var(--border); padding: 20px 24px 28px; z-index: 999; flex-direction: column; gap: 4px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1rem; font-weight: 500; color: var(--ink); padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .mobile-menu .btn { margin-top: 12px; width: 100%; justify-content: center; }
+
+    /* ── HERO ── */
+    #hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 90px; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(82,183,136,0.13) 0%, transparent 70%), radial-gradient(ellipse 60% 80% at 10% 80%, rgba(201,168,76,0.08) 0%, transparent 60%), linear-gradient(160deg, #faf9f6 0%, #f0ede6 100%); }
+    .hero-pattern { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(45,106,79,0.06) 1px, transparent 1px); background-size: 32px 32px; opacity: 0.5; }
+
+    .hero-content { position: relative; z-index: 3; max-width: 590px; }
+    .hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; animation: fadeUp 0.8s ease both; }
+    .hero-line { width: 40px; height: 2px; background: var(--gold); }
+    .hero-eyebrow-text { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+    .hero-title { animation: fadeUp 0.8s 0.1s ease both; margin-bottom: 10px; }
+    .hero-title .accent { color: var(--green); font-style: italic; }
+    .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--ink-soft); margin-bottom: 20px; animation: fadeUp 0.8s 0.2s ease both; }
+    .hero-desc { animation: fadeUp 0.8s 0.3s ease both; margin-bottom: 36px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; animation: fadeUp 0.8s 0.4s ease both; }
+    .hero-stats { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 56px; animation: fadeUp 0.8s 0.5s ease both; }
+    .stat-item { display: flex; flex-direction: column; }
+    .stat-number { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 700; color: var(--green); line-height: 1; }
+    .stat-label { font-size: 0.77rem; font-weight: 500; letter-spacing: 0.06em; color: var(--ink-soft); text-transform: uppercase; margin-top: 4px; }
+    .stat-divider { width: 1px; height: 48px; background: var(--border); align-self: center; }
+
+    /* ── MARQUEE ── */
+    .marquee-strip { background: var(--green); padding: 14px 0; overflow: hidden; }
+    .marquee-track { display: flex; gap: 48px; white-space: nowrap; animation: marquee 30s linear infinite; }
+    .marquee-item { display: flex; align-items: center; gap: 14px; font-size: 0.77rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.85); flex-shrink: 0; }
+    .marquee-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+    /* ── SECTION HEADER ── */
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-header .divider { margin-left: auto; margin-right: auto; }
+    .section-header .heading-lg { max-width: 680px; margin: 0 auto; }
+
+    /* ── WHO WE ARE ── */
+    #about { background: var(--white); }
+
+    /* Mission & Vision — large prominent cards */
+    .mv-row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 28px; }
+    .mv-card { border-radius: 18px; padding: 44px 40px; position: relative; overflow: hidden; }
+    .mv-card-mission { background: linear-gradient(135deg, #00A85A 0%, #2d6a4f 100%); }
+    .mv-card-vision  { background: linear-gradient(135deg, #00A85A 0%, #00A85A 100%); }
+    .mv-card::before { content: ''; position: absolute; right: -40px; top: -40px; width: 180px; height: 180px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+    .mv-card::after  { content: ''; position: absolute; right: 20px; bottom: -60px; width: 220px; height: 220px; border-radius: 50%; background: rgba(255,255,255,0.03); }
+    .mv-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 18px; }
+    .mv-label-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+    .mv-card h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--white); line-height: 1.25; margin-bottom: 0; position: relative; z-index: 1; }
+    .mv-card-icon { width: 52px; height: 52px; border-radius: 12px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; position: relative; z-index: 1; }
+    .mv-card-icon svg { width: 26px; height: 26px; color: var(--gold-light); }
+
+    /* Values + Partners row */
+    .about-bottom-row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .values-block { background: var(--cream); border: 1px solid var(--border); border-radius: 18px; padding: 36px; }
+    .values-block h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--ink); margin-bottom: 24px; }
+    .values-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .value-item { display: flex; flex-direction: column; gap: 6px; }
+    .value-item-header { display: flex; align-items: center; gap: 10px; }
+    .value-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--green-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .value-icon svg { width: 16px; height: 16px; color: var(--green); }
+    .value-item strong { font-size: 0.88rem; font-weight: 700; color: var(--ink); }
+    .value-item span { font-size: 0.78rem; color: var(--ink-soft); line-height: 1.6; padding-left: 42px; }
+
+    /* Partners block */
+    .partners-block { background: var(--cream); border: 1px solid var(--border); border-radius: 18px; padding: 36px; display: flex; flex-direction: column; }
+    .partners-block h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .partners-block .partners-sub { font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 24px; line-height: 1.6; }
+    .partners-list { display: flex; flex-direction: column; gap: 12px; flex: 1; }
+    .partner-row { display: flex; align-items: center; gap: 14px; padding: 12px 16px; background: var(--white); border: 1px solid var(--border); border-radius: 10px; transition: box-shadow 0.2s, transform 0.2s; }
+    .partner-row:hover { box-shadow: var(--shadow); transform: translateX(3px); }
+    .partner-icon { width: 34px; height: 34px; border-radius: 8px; background: var(--green-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .partner-icon svg { width: 17px; height: 17px; color: var(--green); }
+    .partner-name { font-size: 0.84rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
+    .partner-type { font-size: 0.7rem; color: var(--ink-soft); }
+
+    @media (max-width: 1024px) {
+      .mv-row { grid-template-columns: 1fr; }
+      .about-bottom-row { grid-template-columns: 1fr; }
+      .values-grid-2 { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .mv-card { padding: 32px 24px; }
+      .values-grid-2 { grid-template-columns: 1fr; }
+    }
+
+    /* ── TARGET GROUPS ── */
+    #targets { background: var(--white); }
+    .targets-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+    .target-card { border-radius: 16px; padding: 32px 24px; background: var(--cream); border: 1px solid var(--border); text-align: center; transition: all 0.3s ease; }
+    .target-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--green-light); }
+    .target-icon { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+    .target-icon svg { width: 30px; height: 30px; }
+    .ti-green { background: var(--green-pale); color: var(--green); }
+    .ti-gold { background: #fdf3d7; color: #a8872e; }
+    .ti-teal { background: #d8f3dc; color: var(--green); }
+    .ti-purple { background: #00A85A; color: #00A85A; }
+    .target-card .heading-md { font-size: 1.15rem; margin-bottom: 10px; }
+    .target-card p { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.75; }
+
+    /* ── INTERVENTION AREAS ── */
+    #interventions { background: var(--cream); }
+    .interventions-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    .intervention-card { background: var(--white); border-radius: 16px; padding: 36px 28px; border: 1px solid var(--border); position: relative; overflow: hidden; transition: all 0.3s ease; }
+    .intervention-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+    .intervention-card:hover::before { transform: scaleX(1); }
+    .intervention-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--green-pale); }
+    .intervention-card.featured { background: var(--green); border-color: var(--green); }
+    .intervention-card.featured::before { background: var(--gold); }
+    .intervention-card.featured .int-icon { background: rgba(255,255,255,0.15); }
+    .intervention-card.featured .int-icon svg { color: var(--white); }
+    .intervention-card.featured .heading-md { color: var(--white); }
+    .intervention-card.featured p { color: rgba(255,255,255,0.82); }
+    .int-icon { width: 56px; height: 56px; border-radius: 14px; background: var(--green-pale); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+    .int-icon svg { width: 28px; height: 28px; color: var(--green); }
+    .intervention-card .heading-md { font-size: 1.2rem; margin-bottom: 12px; }
+    .intervention-card p { font-size: 0.875rem; color: var(--ink-soft); line-height: 1.8; }
+    .int-span2 { grid-column: span 2; }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--white); }
+    .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; flex-wrap: wrap; gap: 20px; }
+    .projects-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; }
+    .project-card { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: var(--white); transition: all 0.3s ease; }
+    .project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .project-card-image { height: 200px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .project-card-image svg.big-icon { width: 80px; height: 80px; opacity: 0.2; }
+    .pc-green { background: linear-gradient(135deg,#2d6a4f,#52b788); }
+    .pc-gold { background: linear-gradient(135deg,#c9a84c,#f4d98e); }
+    .pc-teal { background: linear-gradient(135deg,#2d6a4f,#52b788); }
+    .pc-purple { background: linear-gradient(135deg,#00A85A,#00A85A); }
+    .project-tag { position: absolute; top: 14px; left: 14px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); background: rgba(0,0,0,0.28); backdrop-filter: blur(6px); padding: 4px 12px; border-radius: 40px; }
+    .project-card-body { padding: 28px; }
+    .project-card-body .heading-md { font-size: 1.2rem; margin-bottom: 10px; }
+    .project-card-body p { font-size: 0.875rem; color: var(--ink-soft); }
+    .project-meta { display: flex; align-items: center; gap: 14px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+    .meta-chip { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 500; color: var(--ink-soft); }
+    .meta-chip svg { width: 13px; height: 13px; color: var(--green); }
+
+    /* ── PIPELINE PROJECTS ── */
+    #pipeline { background: var(--cream); }
+    .pipeline-intro { max-width: 720px; margin: 0 auto 64px; text-align: center; }
+    .pipeline-intro p { color: var(--ink-soft); margin-top: 16px; font-size: 1rem; line-height: 1.8; }
+    .pipeline-grid { display: flex; flex-direction: column; gap: 40px; }
+    .pipeline-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: 280px 1fr; transition: box-shadow 0.3s, transform 0.3s; }
+    .pipeline-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .pipeline-card-visual { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 28px; gap: 16px; }
+    .pipeline-card-visual svg.pl-icon { width: 56px; height: 56px; opacity: 0.85; color: var(--white); }
+    .pipeline-number { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 700; line-height: 1; color: rgba(255,255,255,0.18); position: absolute; bottom: 12px; right: 20px; }
+    .pipeline-status { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(255,255,255,0.18); color: var(--white); padding: 4px 12px; border-radius: 40px; backdrop-filter: blur(4px); }
+    .pl-climate  { background: linear-gradient(145deg, #00A85A, #2d6a4f); }
+    .pl-restore  { background: linear-gradient(145deg, #00A85A, #00A85A); }
+    .pl-resilient{ background: linear-gradient(145deg, #00A85A, #c9873e); }
+    .pipeline-card-body { padding: 36px 40px; display: flex; flex-direction: column; gap: 14px; justify-content: center; }
+    .pipeline-card-body .heading-md { font-size: 1.35rem; color: var(--ink); margin-bottom: 4px; }
+    .pipeline-title-link { color: inherit; text-decoration: none; transition: color 0.2s; }
+    .pipeline-title-link:hover { color: #00A85A; }
+    .pipeline-card-body .pipeline-acronym { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 4px; display: block; }
+    .pipeline-card-body p { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.85; }
+    .pipeline-highlights { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .pl-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 600; color: var(--green); background: var(--green-pale); padding: 4px 12px; border-radius: 40px; }
+    .pl-chip svg { width: 11px; height: 11px; }
+    .pipeline-impact { display: flex; gap: 24px; margin-top: 12px; padding-top: 16px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+    .pl-impact-item { display: flex; flex-direction: column; gap: 2px; }
+    .pl-impact-num { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: var(--green); line-height: 1; }
+    .pl-impact-label { font-size: 0.7rem; font-weight: 500; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.06em; }
+    .pipeline-cta-bar { margin-top: 56px; background: linear-gradient(135deg, #00A85A, #2d6a4f); border-radius: 20px; padding: 48px 56px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .pipeline-cta-bar h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 700; color: var(--white); max-width: 480px; line-height: 1.25; }
+    .pipeline-cta-bar p { color: rgba(255,255,255,0.75); font-size: 0.92rem; margin-top: 8px; }
+    .pipeline-cta-actions { display: flex; gap: 12px; flex-shrink: 0; flex-wrap: wrap; }
+    @media (max-width: 860px) {
+      .pipeline-card { grid-template-columns: 1fr; }
+      .pipeline-card-visual { min-height: 160px; }
+      .pipeline-number { font-size: 3.5rem; }
+      .pipeline-cta-bar { padding: 36px 28px; }
+    }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: var(--cream); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; }
+    .testimonial-card { background: var(--white); border-radius: 16px; padding: 36px; border: 1px solid var(--border); position: relative; overflow: hidden; transition: all 0.3s; }
+    .testimonial-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .testimonial-card::before { content: '\201C'; position: absolute; top: -10px; left: 24px; font-family: 'Cormorant Garamond', serif; font-size: 8rem; line-height: 1; color: var(--green-pale); z-index: 0; }
+    .testimonial-text { position: relative; z-index: 1; font-size: 0.98rem; color: var(--ink-soft); line-height: 1.85; font-style: italic; margin-bottom: 24px; }
+    .testimonial-author { display: flex; align-items: center; gap: 14px; position: relative; z-index: 1; }
+    .author-avatar { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; color: var(--white); flex-shrink: 0; }
+    .av-green { background: linear-gradient(135deg,#2d6a4f,#00A85A); }
+    .av-gold { background: linear-gradient(135deg,#a8872e,#c9a84c); }
+    .av-teal { background: linear-gradient(135deg,#2d6a4f,#52b788); }
+    .av-purple { background: linear-gradient(135deg,#00A85A,#00A85A); }
+    .author-name { font-weight: 600; font-size: 0.92rem; color: var(--ink); }
+    .author-role { font-size: 0.75rem; color: var(--ink-soft); }
+
+    /* ── IMPACT ── */
+    #impact { background: var(--green); position: relative; overflow: hidden; }
+    .impact-pattern { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 28px 28px; }
+    .impact-blob { position: absolute; right: -200px; top: 50%; transform: translateY(-50%); width: 600px; height: 600px; border-radius: 50%; background: rgba(255,255,255,0.03); }
+    .impact-inner { position: relative; }
+    .impact-header { text-align: center; margin-bottom: 64px; }
+    .impact-header .tag { background: rgba(255,255,255,0.15); color: var(--gold-light); }
+    .impact-header .heading-lg { color: var(--white); }
+    .impact-header p { color: rgba(255,255,255,0.75); max-width: 560px; margin: 16px auto 0; }
+    .impact-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 28px; text-align: center; }
+    .impact-item { padding: 32px 16px; border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; background: rgba(255,255,255,0.06); backdrop-filter: blur(8px); transition: background 0.2s; }
+    .impact-item:hover { background: rgba(255,255,255,0.1); }
+    .impact-number { font-family: 'Cormorant Garamond', serif; font-size: 3.4rem; font-weight: 700; color: var(--gold-light); line-height: 1; margin-bottom: 8px; }
+    .impact-label { font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.92); letter-spacing: 0.04em; }
+    .impact-desc { font-size: 0.72rem; color: rgba(255,255,255,0.55); margin-top: 6px; }
+
+    /* ── CTA ── */
+    #cta { background: linear-gradient(135deg,#00A85A 0%,#2d6a4f 60%,#52b788 100%); position: relative; overflow: hidden; }
+    .cta-blob1 { position: absolute; right: -100px; top: -100px; width: 400px; height: 400px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+    .cta-blob2 { position: absolute; left: -80px; bottom: -80px; width: 300px; height: 300px; border-radius: 50%; background: rgba(201,168,76,0.1); }
+    .cta-inner { position: relative; text-align: center; max-width: 700px; margin: 0 auto; }
+    .cta-inner .tag { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.92); }
+    .cta-inner .heading-lg { color: var(--white); margin-bottom: 16px; }
+    .cta-inner > p { color: rgba(255,255,255,0.82); margin-bottom: 36px; font-size: 1rem; }
+    .cta-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: start; }
+    .contact-info .heading-lg { margin-bottom: 14px; }
+    .contact-detail { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 22px; }
+    .detail-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--green-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .detail-icon svg { width: 20px; height: 20px; color: var(--green); }
+    .detail-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); margin-bottom: 2px; }
+    .detail-value { font-size: 0.9rem; font-weight: 500; color: var(--ink); }
+    .contact-form-wrap { background: var(--cream); border-radius: 20px; padding: 40px; border: 1px solid var(--border); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
+    .form-group label { font-size: 0.78rem; font-weight: 600; color: var(--ink); letter-spacing: 0.04em; }
+    .form-group input, .form-group textarea, .form-group select { padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background: var(--white); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--ink); outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(45,106,79,0.1); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit { width: 100%; justify-content: center; padding: 16px; font-size: 0.95rem; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--ink); color: rgba(255,255,255,0.72); padding: 72px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+    .footer-logo-link { display: inline-block; margin-bottom: 16px; }
+    .footer-logo-img { height: 64px; width: auto; object-fit: contain; display: block; max-width: 220px; background: transparent; }
+    .footer-brand .logo-primary { color: var(--white); }
+    .footer-brand .logo-sub { color: var(--green-light); }
+    .footer-brand .logo-mark { background: var(--green); }
+    .footer-logo-link { display: inline-block; margin-bottom: 4px; }
+    .footer-logo-img { height: 52px; width: auto; object-fit: contain; display: block; filter: brightness(0) invert(1); }
+    .footer-tagline { font-size: 0.875rem; line-height: 1.85; margin-top: 16px; color: rgba(255,255,255,0.72); }
+    .footer-social { display: flex; gap: 10px; margin-top: 24px; }
+    .social-btn { width: 38px; height: 38px; border-radius: 8px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .social-btn:hover { background: var(--green); }
+    .social-btn svg { width: 16px; height: 16px; color: rgba(255,255,255,0.75); }
+    .footer-col h4 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 20px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.56); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--green-light); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.38); }
+    .footer-heart { color: var(--gold); }
+
+    /* ── SECTION TAG FONT SIZE OVERRIDES ── */
+    #interventions .tag,
+    #pipeline .tag,
+    #targets .tag,
+    #projects .tag {
+      font-size: 13px;
+      padding: 6px 18px;
+    }
+    #interventions .section-header .heading-lg,
+    #pipeline .heading-lg,
+    #targets .section-header .heading-lg,
+    #projects .heading-lg {
+      font-size: clamp(2.1rem, 4vw, 3.4rem);
+    }
+
+    /* ── GREEN COLOR UNIFICATION ── */
+    /* Unify teal variants to brand green */
+    .pc-teal { background: linear-gradient(135deg,#2d6a4f,#52b788) !important; }
+    .ti-teal { background: var(--green-pale) !important; color: var(--green) !important; }
+    .av-teal { background: linear-gradient(135deg,#2d6a4f,#00A85A) !important; }
+    .pl-climate { background: linear-gradient(145deg, #00A85A, #2d6a4f) !important; }
+
+
+    /* ── NEWS & BLOG ── */
+    #news { background: var(--cream); }
+    .news-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .blog-card { background: var(--white); border-radius: 20px; overflow: hidden; border: 1px solid var(--border); transition: all 0.3s ease; display: flex; flex-direction: column; }
+    .blog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .blog-card-header { padding: 36px 36px 0; }
+    .blog-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+    .blog-category { display: inline-flex; align-items: center; gap: 6px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: #00A85A; padding: 4px 12px; border-radius: 40px; }
+    .blog-date { font-size: 0.75rem; color: var(--ink-soft); font-weight: 500; }
+    .blog-author-chip { font-size: 0.75rem; color: var(--ink-soft); display: flex; align-items: center; gap: 6px; }
+    .blog-author-chip svg { width: 13px; height: 13px; color: #00A85A; }
+    .blog-card h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.2rem, 2vw, 1.55rem); font-weight: 700; color: var(--ink); line-height: 1.3; margin-bottom: 14px; }
+    .blog-card-body { padding: 20px 36px 36px; flex: 1; display: flex; flex-direction: column; }
+    .blog-excerpt { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.85; flex: 1; }
+    .blog-excerpt p { margin-bottom: 14px; }
+    .blog-excerpt p:last-child { margin-bottom: 0; }
+    .blog-divider { width: 40px; height: 2px; background: var(--gold); margin: 20px 0; }
+    .blog-read-more { display: inline-flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 700; color: #00A85A; letter-spacing: 0.04em; margin-top: 24px; transition: gap 0.2s; }
+    .blog-read-more:hover { gap: 12px; }
+    .blog-read-more svg { width: 14px; height: 14px; transition: transform 0.2s; }
+    .blog-read-more:hover svg { transform: translateX(3px); }
+    .blog-image-strip { height: 6px; background: linear-gradient(90deg, #00A85A, #c9a84c); }
+    .blog-card-cover { width: 100%; height: 200px; overflow: hidden; display: block; flex-shrink: 0; }
+    .blog-card-cover svg { width: 100%; height: 100%; display: block; }
+    .blog-card-cover-inner { position: relative; }
+    .blog-card-cover-inner svg { display: block; }
+    .blog-card-body { padding: 24px 28px 28px; flex: 1; display: flex; flex-direction: column; }
+    .blog-card-header { padding: 0; }
+    @media (max-width: 768px) { .news-grid { grid-template-columns: 1fr; } }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .fade-in-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .targets-grid { grid-template-columns: repeat(2,1fr); }
+      .interventions-grid { grid-template-columns: repeat(2,1fr); }
+      .int-span2 { grid-column: span 2; }
+      .impact-grid { grid-template-columns: repeat(2,1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .hero-stats { gap: 20px; }
+      .stat-divider { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .interventions-grid { grid-template-columns: 1fr; }
+      .int-span2 { grid-column: span 1; }
+    }
+    @media (max-width: 480px) {
+      .targets-grid { grid-template-columns: 1fr; }
+      .impact-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">
+          <img src="E4D_Ghana.jpg" alt="Empower for Development Ghana" class="nav-logo-img" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="who-we-are.html">Who We Are</a></li>
+          <li><a href="who-we-serve.html">Who We Serve</a></li>
+          <li><a href="our-work.html">Our Work</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="pipeline.html">Pipeline</a></li>
+          <li><a href="#testimonials">Youth Voices</a></li>
+          <li><a href="#news">News &amp; Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#cta" class="btn btn-gold nav-cta">Donate</a>
+        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="who-we-are.html" onclick="closeMenu()">Who We Are</a>
+    <a href="who-we-serve.html" onclick="closeMenu()">Who We Serve</a>
+    <a href="our-work.html" onclick="closeMenu()">Our Work</a>
+    <a href="projects.html" onclick="closeMenu()">Projects</a>
+    <a href="pipeline.html" onclick="closeMenu()">Pipeline</a>
+    <a href="#testimonials" onclick="closeMenu()">Youth Voices</a>
+    <a href="#news" onclick="closeMenu()">News &amp; Blog</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+    <a href="#cta" class="btn btn-gold" onclick="closeMenu()">Donate</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <div class="hero-line"></div>
+          <span class="hero-eyebrow-text">Youth-Led · Northern Ghana</span>
+        </div>
+        <h1 class="heading-xl hero-title">
+          Local Solutions.<br>
+          <span class="accent">Empowered Youth.</span><br>
+          Resilient Communities.
+        </h1>
+        <p class="lead hero-desc">
+          From digital skills to civic engagement — Empower for Development Ghana (E4D Ghana) empowers youth to build climate-resilient livelihoods and active citizenship across Northern Ghana.
+        </p>
+        <div class="hero-actions">
+          <a href="#interventions" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            See Our Work
+          </a>
+          <a href="#pipeline" class="btn btn-outline" style="color:#00A85A;border-color:#00A85A;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            See Our Pipeline Projects
+          </a>
+          <a href="#contact" class="btn btn-gold" style="background:#00A85A;border-color:#00A85A;">Join Us in Empowering Communities</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number" style="color:#00A85A;">2,000+</span>
+            <span class="stat-label">Youth Reached</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number" style="color:#00A85A;">25+</span>
+            <span class="stat-label">Communities Served</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number" style="color:#00A85A;">5</span>
+            <span class="stat-label">Projects Delivered</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number" style="color:#00A85A;">5</span>
+            <span class="stat-label">Regions Active</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <div class="marquee-item"><span class="marquee-dot"></span>Education &amp; Lifelong Learning</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>ICT &amp; Digital Literacy</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Social Entrepreneurship</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Environmental Sustainability</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Peacebuilding</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Youth Empowerment</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Civic Engagement</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Northern Ghana</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Education &amp; Lifelong Learning</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>ICT &amp; Digital Literacy</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Social Entrepreneurship</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Environmental Sustainability</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Peacebuilding</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Youth Empowerment</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Civic Engagement</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Northern Ghana</div>
+    </div>
+  </div>
+
+  <!-- WHO WE ARE -->
+  <section id="about" class="section">
+    <div class="container">
+
+      <!-- Mission & Vision — large prominent cards -->
+      <div class="mv-row fade-in-up">
+        <div class="mv-card mv-card-mission">
+          <div class="mv-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="mv-label"><span class="mv-label-dot"></span>Our Mission</div>
+          <h3>To work for and with children, women, young people and individuals with low skills and our partners to cause positive changes at individual and systemic levels.</h3>
+        </div>
+        <div class="mv-card mv-card-vision">
+          <div class="mv-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="mv-label"><span class="mv-label-dot"></span>Our Vision</div>
+          <h3>A society where children, women, young people (including NEETs) and individuals with low skills are empowered to contribute meaningfully to sustainable national and global development.</h3>
+        </div>
+      </div>
+
+      <!-- Values row -->
+      <div class="fade-in-up" style="margin-top: 28px;">
+        <div class="values-block" style="max-width: 100%;">
+
+          <h3>Our Values</h3>
+          <div class="values-grid-2">
+            <div class="value-item">
+              <div class="value-item-header">
+                <div class="value-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <strong>Youth Leadership</strong>
+              </div>
+              <span>Young people lead at every level — from design to delivery.</span>
+            </div>
+            <div class="value-item">
+              <div class="value-item-header">
+                <div class="value-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </div>
+                <strong>Community-Driven</strong>
+              </div>
+              <span>Solutions rooted in the real needs of Northern Ghana's communities.</span>
+            </div>
+            <div class="value-item">
+              <div class="value-item-header">
+                <div class="value-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20"/></svg>
+                </div>
+                <strong>Inclusivity</strong>
+              </div>
+              <span>Gender equity, disability inclusion, and representation for all.</span>
+            </div>
+            <div class="value-item">
+              <div class="value-item-header">
+                <div class="value-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <strong>Empowerment</strong>
+              </div>
+              <span>Build agency and leadership in those we serve and employ.</span>
+            </div>
+            <div class="value-item">
+              <div class="value-item-header">
+                <div class="value-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <strong>Localisation</strong>
+              </div>
+              <span>Use local knowledge, expertise and resources to address pressing community challenges.</span>
+            </div>
+        </div><!-- end values-grid-2 -->
+        </div><!-- end values-block -->
+      </div><!-- end fade-in-up -->
+    </div><!-- end container -->
+  </section><!-- end about -->
+
+  <!-- TARGET GROUPS -->
+  <section id="targets" class="section">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="tag">Our Target Groups</span>
+        <h2 class="heading-lg">The communities and individuals at the heart of everything we do.</h2>
+        <div class="divider divider-center"></div>
+      </div>
+      <div class="targets-grid">
+        <div class="target-card fade-in-up">
+          <div class="target-icon ti-teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="heading-md">Children</h3>
+          <p>Supporting the well-being, protection, and development of children across Northern Ghana.</p>
+        </div>
+        <div class="target-card fade-in-up">
+          <div class="target-icon ti-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><polyline points="16 11 18 13 22 9"/></svg>
+          </div>
+          <h3 class="heading-md">Youth including NEETs</h3>
+          <p>Empowering young people, including those not in education, employment, or training (NEETs), with skills and opportunities.</p>
+        </div>
+        <div class="target-card fade-in-up">
+          <div class="target-icon ti-gold">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          </div>
+          <h3 class="heading-md">Individuals with No or Low Skills</h3>
+          <p>Providing capacity-building and vocational training for individuals with no or low skills to improve their livelihoods.</p>
+        </div>
+        <div class="target-card fade-in-up">
+          <div class="target-icon ti-purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 class="heading-md">Women</h3>
+          <p>Advancing gender equity through targeted programmes that empower women economically, socially, and politically.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERVENTION AREAS -->
+  <section id="interventions" class="section">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="tag">Our Intervention Areas</span>
+        <h2 class="heading-lg">Five interconnected pillars driving youth-led change across Northern Ghana.</h2>
+        <div class="divider divider-center"></div>
+      </div>
+      <div class="interventions-grid">
+        <div class="intervention-card fade-in-up">
+          <div class="int-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3 class="heading-md">Education &amp; Lifelong Learning</h3>
+          <p>Promoting access to quality education and continuous learning opportunities for all ages, empowering individuals to grow and adapt throughout life.</p>
+        </div>
+        <div class="intervention-card featured fade-in-up">
+          <div class="int-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3 class="heading-md">ICT &amp; Digital Literacy</h3>
+          <p>Bridging the digital divide through technology training, coding workshops, and digital skills development to prepare communities for the modern economy.</p>
+        </div>
+        <div class="intervention-card fade-in-up">
+          <div class="int-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3 class="heading-md">Social Entrepreneurship &amp; Youth Employment</h3>
+          <p>Equipping young people with entrepreneurial skills, business mentorship, and employment pathways to build sustainable livelihoods.</p>
+        </div>
+        <div class="intervention-card fade-in-up">
+          <div class="int-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3 class="heading-md">Environmental Sustainability &amp; Climate Change</h3>
+          <p>Leading community-driven climate adaptation, environmental conservation, and awareness campaigns to build resilient and sustainable communities.</p>
+        </div>
+        <div class="intervention-card int-span2 fade-in-up">
+          <div class="int-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="heading-md">Ethical Leadership, Civic Engagement &amp; Peacebuilding</h3>
+          <p>Fostering responsible leadership, active civic participation, dialogue, and conflict resolution for peaceful, cohesive communities across Northern Ghana.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="projects-header fade-in-up">
+        <div>
+          <span class="tag">Featured Projects</span>
+          <h2 class="heading-lg">Youth-led initiatives creating measurable impact across Northern Ghana.</h2>
+        </div>
+        <a href="#contact" class="btn btn-outline">All Projects</a>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card fade-in-up">
+          <div class="project-card-image pc-teal">
+            <svg class="big-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            <span class="project-tag">Digital Inclusion</span>
+          </div>
+          <div class="project-card-body">
+            <h3 class="heading-md">Digital Skills for Youth</h3>
+            <p>Training 500+ young people in coding, digital literacy, and online entrepreneurship to bridge the digital divide across Northern Ghana.</p>
+            <div class="project-meta">
+              <div class="meta-chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Tamale, Northern Region
+              </div>
+              <div class="meta-chip">500+ Youth</div>
+            </div>
+          </div>
+        </div>
+        <div class="project-card fade-in-up">
+          <div class="project-card-image pc-green">
+            <svg class="big-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span class="project-tag">Peacebuilding</span>
+          </div>
+          <div class="project-card-body">
+            <h3 class="heading-md">Youth Peace Ambassadors</h3>
+            <p>Building bridges through inter-community dialogue, mediation training, and civic engagement among young leaders in the North East Region.</p>
+            <div class="project-meta">
+              <div class="meta-chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                North East Region
+              </div>
+              <div class="meta-chip">Dialogue &amp; Mediation</div>
+            </div>
+          </div>
+        </div>
+        <div class="project-card fade-in-up">
+          <div class="project-card-image pc-gold">
+            <svg class="big-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.48 2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.06 6.06l1.8-1.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span class="project-tag">Career Mentorship</span>
+          </div>
+          <div class="project-card-body">
+            <h3 class="heading-md">Campus2Career (C2C)</h3>
+            <p>Connecting university students and fresh graduates with professional mentors, scholarship support, internship pathways, and peer networks to accelerate career readiness across Northern Ghana.</p>
+            <div class="project-meta">
+              <div class="meta-chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Multi-campus, Northern Ghana
+              </div>
+              <div class="meta-chip">WhatsApp · Webinars</div>
+            </div>
+          </div>
+        </div>
+        <div class="project-card fade-in-up">
+          <div class="project-card-image pc-purple">
+            <svg class="big-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
+            <span class="project-tag">Climate · Livelihoods</span>
+          </div>
+          <div class="project-card-body">
+            <h3 class="heading-md">Agroforestry &amp; Climate Resilience — Karaga</h3>
+            <p>Community-driven climate adaptation in Karaga District. Youth-led agroforestry, soil conservation, and natural resource management to improve food security and ecological sustainability.</p>
+            <div class="project-meta">
+              <div class="meta-chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Karaga District
+              </div>
+              <div class="meta-chip">Climate Adaptation</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT PIPELINE -->
+  <section id="pipeline" class="section">
+    <div class="container">
+
+      <div class="pipeline-intro fade-in-up">
+        <span class="tag">Project Pipeline</span>
+        <h2 class="heading-lg">Upcoming Initiatives Seeking Funding &amp; Partnerships</h2>
+        <div class="divider divider-center"></div>
+        <p>Empower for Development Ghana has co-created and designed the following initiatives to advance our vision and mission. We are actively seeking funding and partnerships to bring these interventions to life.</p>
+      </div>
+
+      <div class="pipeline-grid">
+
+        <!-- YACA -->
+        <div class="pipeline-card fade-in-up">
+          <div class="pipeline-card-visual pl-climate">
+            <svg class="pl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10"/><path d="M12 6v6l4 2"/><path d="M2 12a10 10 0 0 0 10 10"/><circle cx="12" cy="12" r="2"/><path d="M4.93 4.93l2.83 2.83M16.24 7.76l2.83-2.83M19.07 19.07l-2.83-2.83M7.76 16.24l-2.83 2.83"/></svg>
+            <span class="pipeline-status">Seeking Partners</span>
+            <span class="pipeline-number">01</span>
+          </div>
+          <div class="pipeline-card-body">
+            <span class="pipeline-acronym">YACA</span>
+            <h3 class="heading-md"><a href="pipeline-yaca.html" class="pipeline-title-link">Youth Accelerate Climate Action</a></h3>
+            <p>A youth-led climate education and advocacy initiative aimed at strengthening climate literacy and community resilience in rural Northern Ghana. The project will train young people as <strong>Climate Action Ambassadors</strong> to promote climate-smart and sustainable agricultural practices among farmers in selected communities of the <strong>Kumbungu District</strong>.</p>
+            <p style="margin-top:10px;">Through community dialogues, storytelling sessions, training workshops, and social media advocacy, YACA seeks to empower youth leadership in climate action while supporting farmers to better adapt to climate change and environmental challenges.</p>
+            <div class="pipeline-highlights">
+              <span class="pl-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Kumbungu District</span>
+              <span class="pl-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>Climate Education</span>
+              <span class="pl-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Youth-Led</span>
+              <span class="pl-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Community Dialogues</span>
+            </div>
+            <a href="pipeline-yaca.html" class="blog-read-more" style="margin-top:8px;">
+              Read Full Initiative
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- RESTORE–Ghana -->
+        <div class="pipeline-card fade-in-up">
+          <div class="pipeline-card-visual pl-restore">
+            <svg class="pl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M12 22v-4"/><path d="M9 18h6"/></svg>
+            <span class="pipeline-status">Seeking Partners</span>
+            <span class="pipeline-number">02</span>
+          </div>
+          <div class="pipeline-card-body">
+            <span class="pipeline-acronym">RESTORE–Ghana · Resilient Engagement for Social Trust, Opportunity, Reconciliation &amp; Empowerment</span>
+            <h3 class="heading-md"><a href="pipeline-restore.html" class="pipeline-title-link">RESTORE–Ghana</a></h3>
+            <p>A youth-led peace and climate resilience initiative that brings together <strong>farmers, Fulbe herders, youth, women, and community leaders</strong> in conflict-affected communities in the <strong>Mion, Karaga and Gushegu districts</strong>, Northern Region.</p>
+            <p style="margin-top:10px;">Through intergenerational storytelling, restorative healing circles, and community sports, the project creates safe spaces for dialogue, healing, and connection — reducing farmer–herder tensions and strengthening social cohesion.</p>
+            <div class="pipeline-highlights">
+              <span class="pl-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Mion · Karaga · Gushegu</span>
+              <span class="pl-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Peacebuilding</span>
+              <span class="pl-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Healing &amp; Wellbeing</span>
+            </div>
+            <div class="pipeline-impact">
+              <div class="pl-impact-item">
+                <span class="pl-impact-num">2,500</span>
+                <span class="pl-impact-label">Direct Reach</span>
+              </div>
+              <div class="pl-impact-item">
+                <span class="pl-impact-num">7,500+</span>
+                <span class="pl-impact-label">Indirect Reach</span>
+              </div>
+              <div class="pl-impact-item">
+                <span class="pl-impact-num">3</span>
+                <span class="pl-impact-label">Districts</span>
+              </div>
+            </div>
+            <a href="pipeline-restore.html" class="blog-read-more" style="margin-top:8px;">
+              Read Full Initiative
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- RESILIENT–Ghana -->
+        <div class="pipeline-card fade-in-up">
+          <div class="pipeline-card-visual pl-resilient">
+            <svg class="pl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/><path d="M3.05 11a9 9 0 0 1 17.9 0"/><path d="M3.05 13a9 9 0 0 0 17.9 0"/></svg>
+            <span class="pipeline-status">Seeking Partners</span>
+            <span class="pipeline-number">03</span>
+          </div>
+          <div class="pipeline-card-body">
+            <span class="pipeline-acronym">RESILIENT–Ghana</span>
+            <h3 class="heading-md"><a href="pipeline-resilient.html" class="pipeline-title-link">RESILIENT–Ghana</a></h3>
+            <p>A youth-led climate justice and peacebuilding initiative that will address <strong>climate-driven tensions between farmers and Fulbe herders</strong> in selected districts in Northern Ghana.</p>
+            <p style="margin-top:10px;">The project will train <strong>Climate Justice Ambassadors</strong> and mobilise communities through intergenerational dialogues, restorative healing circles, and community sports to promote climate literacy, sustainable natural resource use, and peaceful coexistence.</p>
+            <p style="margin-top:10px;">By empowering youth and strengthening collaboration among farmers, herders, and community leaders, RESILIENT–Ghana will help build resilient communities, reduce resource-based conflicts, and advance climate adaptation.</p>
+            <div class="pipeline-highlights">
+              <span class="pl-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Northern Ghana</span>
+              <span class="pl-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Climate Justice</span>
+              <span class="pl-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Youth Ambassadors</span>
+              <span class="pl-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>Civil Society Partners</span>
+            </div>
+            <a href="pipeline-resilient.html" class="blog-read-more" style="margin-top:8px;">
+              Read Full Initiative
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA bar -->
+      <div class="pipeline-cta-bar fade-in-up">
+        <div>
+          <h3>Partner with us to fund these initiatives</h3>
+          <p>We are actively seeking funding partners, institutional donors, and strategic collaborators to bring these programmes to communities across Northern Ghana.</p>
+        </div>
+        <div class="pipeline-cta-actions">
+          <a href="#contact" class="btn btn-white">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Get in Touch
+          </a>
+          <a href="#cta" class="btn btn-outline-white">Donate to E4D Ghana</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OUR NETWORK & PARTNERS -->
+  <section id="partners" class="section" style="background: var(--white);">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="tag">Our Network &amp; Partners</span>
+        <h2 class="heading-lg">Collaborating for greater impact across Africa.</h2>
+        <div class="divider divider-center"></div>
+        <p style="color: var(--ink-soft); max-width: 600px; margin: 0 auto; font-size: 1rem; line-height: 1.8;">E4D Ghana collaborates with leading youth-focused organisations to amplify impact across Africa.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 960px; margin: 0 auto;">
+        <div class="partner-row fade-in-up">
+          <div class="partner-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/></svg>
+          </div>
+          <div>
+            <div class="partner-name">UN SDSN Youth</div>
+            <div class="partner-type">Network Member</div>
+          </div>
+        </div>
+        <div class="partner-row fade-in-up">
+          <div class="partner-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div>
+            <div class="partner-name">Girls to Women Foundation</div>
+            <div class="partner-type">Partner Organisation</div>
+          </div>
+        </div>
+        <div class="partner-row fade-in-up">
+          <div class="partner-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="partner-name">Equitas Africa</div>
+            <div class="partner-type">Partner Organisation</div>
+          </div>
+        </div>
+        <div class="partner-row fade-in-up">
+          <div class="partner-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <div class="partner-name">YILT Africa</div>
+            <div class="partner-type">Youth In Leadership Transformation</div>
+          </div>
+        </div>
+        <div class="partner-row fade-in-up">
+          <div class="partner-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div>
+            <div class="partner-name">Kaapuori Children's Resource Foundation</div>
+            <div class="partner-type">Partner Organisation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT NUMBERS -->
+  <section id="impact" class="section">
+    <div class="impact-pattern"></div>
+    <div class="impact-blob"></div>
+    <div class="container impact-inner">
+      <div class="impact-header fade-in-up">
+        <span class="tag">Our Impact</span>
+        <h2 class="heading-lg">Numbers That Tell the Story</h2>
+        <p>Youth-founded, youth-led, youth-serving — across Northern Ghana's most underserved communities.</p>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-item fade-in-up">
+          <div class="impact-number">2,000+</div>
+          <div class="impact-label">Youth Reached</div>
+          <div class="impact-desc">Across all programmes and regions</div>
+        </div>
+        <div class="impact-item fade-in-up">
+          <div class="impact-number">25+</div>
+          <div class="impact-label">Communities Served</div>
+          <div class="impact-desc">Northern, Savannah &amp; North East Regions</div>
+        </div>
+        <div class="impact-item fade-in-up">
+          <div class="impact-number">5</div>
+          <div class="impact-label">Projects Delivered</div>
+          <div class="impact-desc">Education, peace, climate &amp; livelihoods</div>
+        </div>
+        <div class="impact-item fade-in-up">
+          <div class="impact-number">5</div>
+          <div class="impact-label">Regions Active</div>
+          <div class="impact-desc">Pan-Northern Ghana coverage</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="tag">Youth Voices</span>
+        <h2 class="heading-lg">Hear from the People We Serve</h2>
+        <div class="divider divider-center"></div>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-in-up">
+          <p class="testimonial-text">E4D gave me the digital skills and confidence to start my own business. Now I train other young people in my community.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar av-green">AS</div>
+            <div>
+              <div class="author-name">Amina S.</div>
+              <div class="author-role">Digital Skills Graduate, Tamale</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in-up">
+          <p class="testimonial-text">Through the Peace Ambassadors programme, I learned that dialogue is stronger than division. We are building a peaceful future.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar av-teal">AM</div>
+            <div>
+              <div class="author-name">Abdul-Razak M.</div>
+              <div class="author-role">Peace Ambassador, Yendi</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in-up">
+          <p class="testimonial-text">Before Campus2Career, I had no idea how to write a CV or where to find internships. Through the C2C WhatsApp community, I got mentorship, applied for a scholarship, and secured an internship that launched my career. C2C changed my life.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar av-gold">FA</div>
+            <div>
+              <div class="author-name">Fatima A.</div>
+              <div class="author-role">C2C Beneficiary, University for Development Studies</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in-up">
+          <p class="testimonial-text">Campus2Career connected me with professionals who guided me through my final year and into my first job. The webinars and peer support gave me the confidence and skills I needed to stand out. I owe my career readiness to C2C.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar av-purple">IK</div>
+            <div>
+              <div class="author-name">Ibrahim K.</div>
+              <div class="author-role">C2C Beneficiary, Tamale Technical University</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- NEWS & BLOG -->
+  <section id="news" class="section">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="tag">News &amp; Blog</span>
+        <h2 class="heading-lg">Insights, Stories &amp; Perspectives from the Field</h2>
+        <div class="divider divider-center"></div>
+        <p style="color:var(--ink-soft);max-width:620px;margin:0 auto;font-size:1rem;line-height:1.8;">Commentary and analysis from our team on agriculture, youth empowerment, and development in Ghana.</p>
+      </div>
+
+      <div class="news-grid">
+
+        <!-- Blog Post 1 -->
+        <article class="blog-card fade-in-up">
+          <!-- Cover Image -->
+          <div class="blog-card-cover">
+            <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="bc1sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a3d2e"/><stop offset="100%" stop-color="#1a6b3c"/></linearGradient>
+                <linearGradient id="bc1gnd" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2d5a1b"/><stop offset="100%" stop-color="#1a3a0f"/></linearGradient>
+                <radialGradient id="bc1sun" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#f4d98e"/><stop offset="100%" stop-color="#f4d98e" stop-opacity="0"/></radialGradient>
+              </defs>
+              <rect width="600" height="130" fill="url(#bc1sky)"/>
+              <rect y="115" width="600" height="85" fill="url(#bc1gnd)"/>
+              <circle cx="300" cy="108" r="32" fill="#f4d98e" opacity="0.85"/>
+              <circle cx="300" cy="108" r="55" fill="url(#bc1sun)" opacity="0.3"/>
+              <path d="M0,130 Q150,118 300,126 Q450,134 600,122 L600,200 L0,200Z" fill="#1e4a10"/>
+              <path d="M0,148 Q200,138 400,146 Q500,150 600,140 L600,200 L0,200Z" fill="#254f14"/>
+              <g stroke="#3a7a20" stroke-width="1" opacity="0.6">
+                <line x1="60" y1="200" x2="65" y2="130"/><line x1="80" y1="200" x2="84" y2="128"/>
+                <line x1="100" y1="200" x2="103" y2="132"/><line x1="120" y1="200" x2="122" y2="129"/>
+                <line x1="450" y1="200" x2="455" y2="130"/><line x1="470" y1="200" x2="473" y2="128"/>
+                <line x1="490" y1="200" x2="492" y2="132"/><line x1="510" y1="200" x2="511" y2="129"/>
+                <line x1="530" y1="200" x2="528" y2="131"/>
+              </g>
+              <g fill="#c9a84c" opacity="0.85">
+                <ellipse cx="65" cy="128" rx="3" ry="7"/><ellipse cx="84" cy="126" rx="3" ry="7"/>
+                <ellipse cx="103" cy="130" rx="3" ry="6"/><ellipse cx="122" cy="127" rx="3" ry="7"/>
+                <ellipse cx="455" cy="128" rx="3" ry="7"/><ellipse cx="473" cy="126" rx="3" ry="7"/>
+                <ellipse cx="492" cy="130" rx="3" ry="6"/><ellipse cx="511" cy="127" rx="3" ry="7"/>
+                <ellipse cx="528" cy="129" rx="3" ry="6"/>
+              </g>
+              <g fill="#0d2e14" opacity="0.8">
+                <rect x="218" y="90" width="8" height="50"/>
+                <ellipse cx="222" cy="88" rx="22" ry="16"/>
+                <ellipse cx="206" cy="96" rx="14" ry="10"/>
+                <ellipse cx="238" cy="92" rx="15" ry="11"/>
+              </g>
+              <g opacity="0.15" transform="translate(490,30)">
+                <circle cx="0" cy="0" r="28" fill="none" stroke="#f4d98e" stroke-width="2"/>
+                <text x="0" y="9" text-anchor="middle" font-family="serif" font-size="18" fill="#f4d98e">₵</text>
+              </g>
+              <rect y="194" width="600" height="6" fill="#00A85A"/>
+            </svg>
+          </div>
+          <!-- Card body -->
+          <div class="blog-card-body">
+            <div class="blog-meta" style="margin-bottom:12px;">
+              <span class="blog-category">Agri-Finance</span>
+              <span class="blog-date">13 January 2025</span>
+            </div>
+            <a href="blog-agri-finance.html" style="display:block;">
+              <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2vw,1.45rem);font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:12px;transition:color 0.2s;" onmouseover="this.style.color='#00A85A'" onmouseout="this.style.color='var(--ink)'">Hidden Barriers to Youth Access to Agri-Finance in Ghana</h3>
+            </a>
+            <div class="blog-author-chip" style="margin-bottom:14px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg>
+              Rufai Issifu
+            </div>
+            <div class="blog-divider"></div>
+            <p class="blog-excerpt" style="font-size:0.88rem;color:var(--ink-soft);line-height:1.8;flex:1;">Young agripreneurs in Ghana face a stark mismatch between calls for youth participation in agriculture and the funding available to support them — driven by hidden eligibility barriers, unrealistic capital thresholds, and limited grant volume.</p>
+            <a href="blog-agri-finance.html" class="blog-read-more">
+              Read Full Article
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Blog Post 2 -->
+        <article class="blog-card fade-in-up">
+          <!-- Cover Image -->
+          <div class="blog-card-cover">
+            <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="bc2sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3a2800"/><stop offset="55%" stop-color="#8a5c00"/><stop offset="100%" stop-color="#b87d00"/></linearGradient>
+                <linearGradient id="bc2gnd" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c9a84c"/><stop offset="100%" stop-color="#7a5e0a"/></linearGradient>
+                <radialGradient id="bc2glow" cx="55%" cy="55%" r="45%"><stop offset="0%" stop-color="#f4d98e" stop-opacity="0.4"/><stop offset="100%" stop-color="#f4d98e" stop-opacity="0"/></radialGradient>
+              </defs>
+              <rect width="600" height="145" fill="url(#bc2sky)"/>
+              <circle cx="330" cy="118" r="30" fill="#f4d98e" opacity="0.8"/>
+              <circle cx="330" cy="118" r="55" fill="url(#bc2glow)"/>
+              <rect y="120" width="600" height="80" fill="url(#bc2gnd)"/>
+              <path d="M0,132 Q150,122 300,130 Q450,138 600,124 L600,200 L0,200Z" fill="#a8872e" opacity="0.75"/>
+              <path d="M0,155 Q300,145 600,152 L600,200 L0,200Z" fill="#7a5e0a" opacity="0.8"/>
+              <g stroke="#8a6800" stroke-width="1.5" fill="none" opacity="0.75">
+                <line x1="30" y1="200" x2="34" y2="128"/><line x1="50" y1="200" x2="53" y2="126"/>
+                <line x1="70" y1="200" x2="72" y2="130"/><line x1="90" y1="200" x2="88" y2="127"/>
+                <line x1="490" y1="200" x2="494" y2="128"/><line x1="510" y1="200" x2="512" y2="126"/>
+                <line x1="530" y1="200" x2="531" y2="130"/><line x1="550" y1="200" x2="547" y2="127"/>
+                <line x1="570" y1="200" x2="566" y2="129"/>
+              </g>
+              <g fill="#c9a84c" opacity="0.9">
+                <ellipse cx="34" cy="126" rx="3" ry="8"/><ellipse cx="53" cy="124" rx="3" ry="7"/>
+                <ellipse cx="72" cy="128" rx="3" ry="7"/><ellipse cx="88" cy="125" rx="3" ry="8"/>
+                <ellipse cx="494" cy="126" rx="3" ry="8"/><ellipse cx="512" cy="124" rx="3" ry="7"/>
+                <ellipse cx="531" cy="128" rx="3" ry="7"/><ellipse cx="547" cy="125" rx="3" ry="8"/>
+                <ellipse cx="566" cy="127" rx="3" ry="7"/>
+              </g>
+              <g fill="#7a5e0a" opacity="0.9">
+                <ellipse cx="200" cy="162" rx="24" ry="16"/>
+                <rect x="178" y="150" width="44" height="16" rx="3"/>
+                <ellipse cx="200" cy="150" rx="22" ry="6"/>
+                <ellipse cx="270" cy="168" rx="20" ry="14"/>
+                <rect x="252" y="157" width="36" height="14" rx="3"/>
+                <ellipse cx="270" cy="157" rx="18" ry="5"/>
+                <ellipse cx="330" cy="165" rx="22" ry="15"/>
+                <rect x="310" y="153" width="40" height="15" rx="3"/>
+                <ellipse cx="330" cy="153" rx="20" ry="6"/>
+              </g>
+              <rect y="194" width="600" height="6" fill="#c9a84c"/>
+            </svg>
+          </div>
+          <!-- Card body -->
+          <div class="blog-card-body">
+            <div class="blog-meta" style="margin-bottom:12px;">
+              <span class="blog-category" style="background:#c9a84c;">Food Systems</span>
+              <span class="blog-date">December 2025</span>
+            </div>
+            <a href="blog-grain-glut.html" style="display:block;">
+              <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2vw,1.45rem);font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:12px;transition:color 0.2s;" onmouseover="this.style.color='#00A85A'" onmouseout="this.style.color='var(--ink)'">Learning from Ghana's 2025 Grain Glut</h3>
+            </a>
+            <div class="blog-author-chip" style="margin-bottom:14px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg>
+              Rufai Issifu
+            </div>
+            <div class="blog-divider"></div>
+            <p class="blog-excerpt" style="font-size:0.88rem;color:var(--ink-soft);line-height:1.8;flex:1;">Ghana's 2025 bumper harvest exposed critical weaknesses in surplus management. A GHC 300m government response stabilised prices, but structural reforms — from commodity exchanges to agro-processing incentives and export coordination — are urgently needed.</p>
+            <a href="blog-grain-glut.html" class="blog-read-more">
+              Read Full Article
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section id="cta" class="section-sm">
+    <div class="cta-blob1"></div>
+    <div class="cta-blob2"></div>
+    <div class="container">
+      <div class="cta-inner fade-in-up">
+        <span class="tag">Join the Movement for Youth Empowerment</span>
+        <h2 class="heading-lg">Whether you donate, volunteer, or partner with us — every action strengthens youth leadership in Northern Ghana.</h2>
+        <p>Join E4D Ghana in building climate-resilient livelihoods, lasting peace, and empowered communities.</p>
+        <div class="cta-buttons">
+          <a href="mailto:e4dghana@gmail.com" class="btn btn-gold">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            Donate Now
+          </a>
+          <a href="#contact" class="btn btn-outline-white">Get Involved</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info fade-in-up">
+          <span class="tag">Contact</span>
+          <h2 class="heading-lg">Get in Touch</h2>
+          <div class="divider"></div>
+          <p class="lead" style="margin-bottom: 36px;">
+            Whether you want to donate, volunteer, partner, or simply learn more about E4D Ghana's work in Northern Ghana — we'd love to hear from you.
+          </p>
+          <div class="contact-detail">
+            <div class="detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="detail-label">Address</div>
+              <div class="detail-value">Tamale, Northern Region, Ghana</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="detail-label">Email</div>
+              <div class="detail-value"><a href="mailto:e4dghana@gmail.com" style="color:var(--green);">e4dghana@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.48 2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.06 6.06l1.8-1.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="detail-label">Phone</div>
+              <div class="detail-value"><a href="tel:+233246543238" style="color:var(--green);">+233 24 654 3238</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-wrap fade-in-up">
+          <h3 class="heading-md" style="margin-bottom: 24px;">Send Us a Message</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="Your first name" />
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Your last name" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="your@email.com" />
+          </div>
+          <div class="form-group">
+            <label>Organisation (optional)</label>
+            <input type="text" placeholder="Your organisation" />
+          </div>
+          <div class="form-group">
+            <label>Subject</label>
+            <select>
+              <option value="">Select a subject...</option>
+              <option>Donate / Support</option>
+              <option>Partnership Inquiry</option>
+              <option>Volunteer / Internship</option>
+              <option>Programme Information</option>
+              <option>Media &amp; Press</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Tell us how you'd like to work together or what you'd like to know..."></textarea>
+          </div>
+          <button class="btn btn-primary form-submit" onclick="handleSubmit(event)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Message
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="footer-logo-link">
+            <img src="E4D_Ghana.jpg" alt="Empower for Development Ghana" class="footer-logo-img" />
+          </a>
+          <p class="footer-tagline">
+            Youth-founded, youth-led, youth-serving. Empowering communities across Northern Ghana through education, livelihoods, climate justice, and peacebuilding.
+          </p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/share/18JAAP9jDX/" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://x.com/e4dghana" target="_blank" rel="noopener" class="social-btn" aria-label="X (Twitter)">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            </a>
+            <a href="https://instagram.com/e4dghana" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#targets">About Us</a></li>
+            <li><a href="#projects">Our Projects</a></li>
+            <li><a href="#contact">Opportunities</a></li>
+            <li><a href="#news">News &amp; Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#cta">Donate</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Our Work</h4>
+          <ul class="footer-links">
+            <li><a href="#interventions">Education &amp; Learning</a></li>
+            <li><a href="#interventions">ICT &amp; Digital Skills</a></li>
+            <li><a href="#interventions">Social Entrepreneurship</a></li>
+            <li><a href="#interventions">Environmental Sustainability</a></li>
+            <li><a href="#interventions">Peacebuilding</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="#">Tamale, Northern Region, Ghana</a></li>
+            <li><a href="mailto:e4dghana@gmail.com">e4dghana@gmail.com</a></li>
+            <li><a href="tel:+233246543238">+233 24 654 3238</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Empower for Development Ghana. All rights reserved.</p>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <a href="https://www.facebook.com/share/18JAAP9jDX/" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://x.com/e4dghana" target="_blank" rel="noopener" class="social-btn" aria-label="X (Twitter)" title="X">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+          </a>
+          <a href="https://instagram.com/e4dghana" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 40); });
+
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+    function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const siblings = Array.from(entry.target.parentElement?.children || []);
+          const delay = siblings.indexOf(entry.target) * 80;
+          setTimeout(() => entry.target.classList.add('visible'), delay);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+      navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--green)' : ''; });
+    });
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target;
+      btn.textContent = '✓ Message Sent!';
+      btn.style.background = 'var(--green-light)';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message';
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
