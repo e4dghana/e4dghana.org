@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YACA — Youth Accelerate Climate Action | E4D Ghana</title>
+  <meta name="description" content="YACA is a youth-led climate education and advocacy initiative by E4D Ghana aimed at strengthening climate literacy and community resilience in rural Northern Ghana." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: #1a1a2e; background: #faf9f6; line-height: 1.7; overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --green: #00A85A; --green-light: #52b788; --green-pale: #d8f3dc;
+      --gold: #c9a84c; --gold-light: #f4d98e;
+      --ink: #1a1a2e; --ink-soft: #3d3d5c;
+      --cream: #faf9f6; --white: #ffffff;
+      --border: rgba(45,106,79,0.15);
+      --shadow: 0 4px 32px rgba(26,26,46,0.08);
+      --shadow-lg: 0 16px 64px rgba(26,26,46,0.14);
+    }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    .container-wide { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+    .tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); background: var(--green-pale); padding: 4px 14px; border-radius: 40px; margin-bottom: 16px; }
+    .heading-xl { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700; line-height: 1.1; color: var(--ink); }
+    .heading-lg { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 600; line-height: 1.2; color: var(--ink); }
+    .heading-md { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.15rem, 2vw, 1.5rem); font-weight: 600; line-height: 1.3; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.03em; cursor: pointer; transition: all 0.25s ease; border: 2px solid transparent; }
+    .btn-primary { background: var(--green); color: var(--white); border-color: var(--green); }
+    .btn-primary:hover { background: #008a48; border-color: #008a48; transform: translateY(-1px); box-shadow: var(--shadow); }
+    .btn-outline { background: transparent; color: var(--green); border-color: var(--green); }
+    .btn-outline:hover { background: var(--green); color: var(--white); transform: translateY(-1px); }
+    .btn-gold { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .btn-gold:hover { background: #a8872e; border-color: #a8872e; transform: translateY(-1px); }
+
+    .divider { width: 60px; height: 3px; background: var(--gold); margin: 20px 0 32px; }
+
+    /* ── NAVBAR ── */
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(250,249,246,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s; }
+    #navbar.scrolled { box-shadow: var(--shadow); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 90px; max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo-img { height: 72px; width: auto; display: block; object-fit: contain; max-width: 260px; filter: drop-shadow(0 2px 8px rgba(45,106,79,0.18)); }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--ink-soft); padding: 6px 13px; border-radius: 4px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: var(--green); background: var(--green-pale); }
+    .nav-cta { margin-left: 10px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 90px; left: 0; right: 0; background: var(--cream); border-bottom: 1px solid var(--border); padding: 20px 24px 28px; z-index: 999; flex-direction: column; gap: 4px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1rem; font-weight: 500; color: var(--ink); padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .mobile-menu .btn { margin-top: 12px; width: 100%; justify-content: center; }
+
+    /* ── HERO BANNER ── */
+    .initiative-hero { padding-top: 90px; background: linear-gradient(145deg, #00A85A, #2d6a4f); position: relative; overflow: hidden; }
+    .initiative-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 28px 28px; }
+    .initiative-hero-inner { position: relative; z-index: 2; padding: 72px 0 64px; }
+    .hero-back { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: 0.05em; margin-bottom: 28px; transition: color 0.2s; }
+    .hero-back:hover { color: var(--white); }
+    .hero-back svg { width: 14px; height: 14px; }
+    .initiative-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-light); background: rgba(255,255,255,0.12); padding: 5px 16px; border-radius: 40px; margin-bottom: 20px; }
+    .initiative-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5.5vw, 4rem); font-weight: 700; color: var(--white); line-height: 1.1; margin-bottom: 8px; }
+    .initiative-hero .acronym-full { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 400; color: rgba(255,255,255,0.72); margin-bottom: 24px; line-height: 1.6; }
+    .initiative-hero .lead { font-size: 1.05rem; color: rgba(255,255,255,0.85); max-width: 680px; line-height: 1.85; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+    .hero-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.88); background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 40px; }
+    .hero-chip svg { width: 12px; height: 12px; }
+
+    /* ── ARTICLE BODY ── */
+    .article-body { padding: 72px 0 96px; }
+    .article-content { font-size: 1rem; color: var(--ink-soft); line-height: 1.9; }
+    .article-content h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 2.8vw, 2.1rem); font-weight: 700; color: var(--ink); margin: 48px 0 16px; }
+    .article-content h2:first-child { margin-top: 0; }
+    .article-content h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.15rem, 2vw, 1.45rem); font-weight: 600; color: var(--ink); margin: 32px 0 12px; }
+    .article-content p { margin-bottom: 20px; }
+    .article-content strong { color: var(--ink); font-weight: 600; }
+    .article-content ul { list-style: none; margin: 0 0 20px 0; display: flex; flex-direction: column; gap: 10px; }
+    .article-content ul li { padding-left: 22px; position: relative; }
+    .article-content ul li::before { content: ''; position: absolute; left: 0; top: 11px; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight-box { background: var(--green-pale); border-left: 4px solid var(--green); border-radius: 0 12px 12px 0; padding: 24px 28px; margin: 32px 0; }
+    .highlight-box p { margin: 0; color: var(--ink); font-style: italic; font-size: 1.05rem; line-height: 1.8; }
+
+    /* ── IMPACT STATS ── */
+    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 40px 0; }
+    .stat-box { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 28px 20px; text-align: center; }
+    .stat-box .num { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 700; color: var(--green); line-height: 1; margin-bottom: 6px; }
+    .stat-box .lbl { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
+
+    /* ── ACTIVITY CARDS ── */
+    .activity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+    .activity-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 22px; display: flex; gap: 14px; align-items: flex-start; }
+    .activity-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--green-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .activity-icon svg { width: 18px; height: 18px; color: var(--green); }
+    .activity-card strong { display: block; font-size: 0.88rem; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+    .activity-card span { font-size: 0.8rem; color: var(--ink-soft); line-height: 1.6; }
+
+    /* ── CTA FOOTER ── */
+    .initiative-cta { background: linear-gradient(135deg, #00A85A, #2d6a4f); border-radius: 20px; padding: 56px 48px; text-align: center; margin-top: 64px; position: relative; overflow: hidden; }
+    .initiative-cta::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 24px 24px; }
+    .initiative-cta h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; color: var(--white); margin-bottom: 12px; position: relative; }
+    .initiative-cta p { color: rgba(255,255,255,0.78); font-size: 0.95rem; max-width: 500px; margin: 0 auto 32px; line-height: 1.8; position: relative; }
+    .initiative-cta .cta-buttons { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; position: relative; }
+
+    /* ── BACK LINK ── */
+    .back-to-pipeline { display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 600; color: var(--green); border: 1.5px solid var(--green); padding: 10px 20px; border-radius: 4px; transition: all 0.2s; margin-bottom: 48px; }
+    .back-to-pipeline:hover { background: var(--green); color: var(--white); }
+    .back-to-pipeline svg { width: 14px; height: 14px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--ink); color: rgba(255,255,255,0.72); padding: 48px 0 28px; }
+    .footer-simple { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-simple p { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+    .footer-simple a { font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+    .footer-simple a:hover { color: var(--green-light); }
+    .footer-links-row { display: flex; gap: 20px; flex-wrap: wrap; }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .activity-grid { grid-template-columns: 1fr; }
+      .initiative-cta { padding: 40px 24px; }
+    }
+    @media (max-width: 480px) {
+      .stats-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="E4D_Ghana.jpg" alt="Empower for Development Ghana" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#interventions">Our Work</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#pipeline">Pipeline</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <a href="index.html#contact" class="btn btn-primary nav-cta">Get Involved</a>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#about" onclick="closeMenu()">About</a>
+    <a href="index.html#interventions" onclick="closeMenu()">Our Work</a>
+    <a href="index.html#projects" onclick="closeMenu()">Projects</a>
+    <a href="index.html#pipeline" onclick="closeMenu()">Pipeline</a>
+    <a href="index.html#news" onclick="closeMenu()">News</a>
+    <a href="index.html#contact" onclick="closeMenu()">Contact</a>
+    <a href="index.html#contact" class="btn btn-primary">Get Involved</a>
+  </div>
+
+  <!-- HERO -->
+  <header class="initiative-hero">
+    <div class="container initiative-hero-inner">
+      <a href="index.html#pipeline" class="hero-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Back to Project Pipeline
+      </a>
+      <div class="initiative-tag">Project Pipeline · Seeking Partners</div>
+      <h1>Youth Accelerate Climate Action</h1>
+      <p class="acronym-full"><strong style="color:var(--gold-light);">YACA</strong> — A youth-led climate education and advocacy initiative</p>
+      <p class="lead">Training young people as Climate Action Ambassadors to promote climate-smart and sustainable agricultural practices in the Kumbungu District of Northern Ghana.</p>
+      <div class="hero-chips">
+        <span class="hero-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Kumbungu District
+        </span>
+        <span class="hero-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          Youth-Led
+        </span>
+        <span class="hero-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+          Climate Education
+        </span>
+        <span class="hero-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          Community Dialogues
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ARTICLE BODY -->
+  <main class="article-body">
+    <div class="container">
+
+      <a href="index.html#pipeline" class="back-to-pipeline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Back to All Pipeline Projects
+      </a>
+
+      <div class="article-content">
+
+        <h2>Overview</h2>
+        <p>YACA — <strong>Youth Accelerate Climate Action</strong> — is a youth-led climate education and advocacy initiative designed by Empower for Development Ghana (E4D Ghana). The project aims to strengthen climate literacy and community resilience in rural Northern Ghana by training young people to become <strong>Climate Action Ambassadors</strong>.</p>
+        <p>These ambassadors will promote climate-smart and sustainable agricultural practices among farmers in selected communities of the <strong>Kumbungu District</strong> in the Northern Region of Ghana.</p>
+
+        <div class="highlight-box">
+          <p>"Young people are not just the future of climate action — they are the present. YACA puts youth at the heart of building resilient communities in Northern Ghana."</p>
+        </div>
+
+        <h2>The Challenge</h2>
+        <p>Communities across Northern Ghana are experiencing the intensifying effects of climate change — erratic rainfall, prolonged droughts, land degradation, and declining agricultural yields. Smallholder farmers, who form the backbone of rural livelihoods, are among the most vulnerable yet have the least access to climate education, early warning systems, and sustainable farming knowledge.</p>
+        <p>At the same time, young people in these communities remain largely disengaged from formal climate solutions — not because of lack of concern, but because of limited structured opportunities for meaningful leadership and action.</p>
+
+        <h2>Our Approach</h2>
+        <p>YACA bridges this gap by training and deploying young people as trusted community educators and advocates. Our approach is grounded in community engagement, peer learning, and locally relevant communication strategies.</p>
+
+        <div class="activity-grid">
+          <div class="activity-card">
+            <div class="activity-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <strong>Climate Ambassador Training</strong>
+              <span>Intensive capacity-building for youth selected as Climate Action Ambassadors, covering climate science, advocacy, and facilitation skills.</span>
+            </div>
+          </div>
+          <div class="activity-card">
+            <div class="activity-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            </div>
+            <div>
+              <strong>Community Dialogues</strong>
+              <span>Facilitated dialogues bringing together farmers, youth, women, and community leaders to discuss local climate impacts and adaptation strategies.</span>
+            </div>
+          </div>
+          <div class="activity-card">
+            <div class="activity-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+            </div>
+            <div>
+              <strong>Storytelling Sessions</strong>
+              <span>Using traditional and modern storytelling to share climate experiences, indigenous knowledge, and solutions in culturally resonant ways.</span>
+            </div>
+          </div>
+          <div class="activity-card">
+            <div class="activity-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <div>
+              <strong>Social Media Advocacy</strong>
+              <span>Digital campaigns led by youth ambassadors to amplify community voices and climate messages to wider audiences and decision-makers.</span>
+            </div>
+          </div>
+          <div class="activity-card">
+            <div class="activity-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div>
+              <strong>Training Workshops</strong>
+              <span>Practical workshops on climate-smart agriculture, soil and water conservation, and sustainable land management for farming communities.</span>
+            </div>
+          </div>
+          <div class="activity-card">
+            <div class="activity-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <strong>Farmer Field Support</strong>
+              <span>Ambassadors work alongside farmers in the field, providing ongoing support, demonstration, and follow-up on sustainable practices.</span>
+            </div>
+          </div>
+        </div>
+
+        <h2>Expected Outcomes</h2>
+        <ul>
+          <li>Increased climate literacy among youth and farming communities in Kumbungu District</li>
+          <li>A cohort of trained and active youth Climate Action Ambassadors embedded in target communities</li>
+          <li>Improved adoption of climate-smart agricultural practices among smallholder farmers</li>
+          <li>Stronger community capacity to adapt to climate change impacts</li>
+          <li>Enhanced youth leadership and civic engagement on environmental issues</li>
+          <li>A replicable model for youth-led climate education in rural Northern Ghana</li>
+        </ul>
+
+        <h2>Why YACA Matters</h2>
+        <p>Northern Ghana is among the regions most affected by climate change in West Africa, yet youth are rarely placed at the forefront of local climate response. YACA is built on the conviction that young people — when trained, trusted, and supported — are among the most effective agents of change in their own communities.</p>
+        <p>By anchoring climate action in local knowledge, peer education, and culturally grounded communication, YACA creates sustainable change from within communities rather than imposing solutions from outside.</p>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="initiative-cta">
+        <h2>Partner with Us to Fund YACA</h2>
+        <p>We are actively seeking funding partners, institutional donors, and strategic collaborators to bring YACA to communities in Kumbungu District and beyond.</p>
+        <div class="cta-buttons">
+          <a href="index.html#contact" class="btn btn-white" style="background:var(--white);color:var(--green);border-color:var(--white);font-weight:700;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Get in Touch
+          </a>
+          <a href="mailto:e4dghana@gmail.com" class="btn btn-gold">Donate to E4D Ghana</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container-wide">
+      <div class="footer-simple">
+        <p>&copy; 2026 Empower for Development Ghana. All rights reserved.</p>
+        <div class="footer-links-row">
+          <a href="index.html">Home</a>
+          <a href="index.html#pipeline">Project Pipeline</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="mailto:e4dghana@gmail.com">e4dghana@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 40); });
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+    function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+  </script>
+</body>
+</html>

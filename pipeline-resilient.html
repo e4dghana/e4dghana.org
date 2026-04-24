@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RESILIENT–Ghana | E4D Ghana</title>
+  <meta name="description" content="RESILIENT–Ghana is a youth-led climate justice and peacebuilding initiative addressing climate-driven tensions between farmers and Fulbe herders in Northern Ghana." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: #1a1a2e; background: #faf9f6; line-height: 1.7; overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --green: #00A85A; --green-light: #52b788; --green-pale: #d8f3dc;
+      --gold: #c9a84c; --gold-light: #f4d98e;
+      --ink: #1a1a2e; --ink-soft: #3d3d5c;
+      --cream: #faf9f6; --white: #ffffff;
+      --border: rgba(45,106,79,0.15);
+      --shadow: 0 4px 32px rgba(26,26,46,0.08);
+      --shadow-lg: 0 16px 64px rgba(26,26,46,0.14);
+    }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    .container-wide { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+    .tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); background: var(--green-pale); padding: 4px 14px; border-radius: 40px; margin-bottom: 16px; }
+    .heading-xl { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700; line-height: 1.1; color: var(--ink); }
+    .heading-lg { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 600; line-height: 1.2; color: var(--ink); }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.03em; cursor: pointer; transition: all 0.25s ease; border: 2px solid transparent; }
+    .btn-primary { background: var(--green); color: var(--white); border-color: var(--green); }
+    .btn-primary:hover { background: #008a48; border-color: #008a48; transform: translateY(-1px); box-shadow: var(--shadow); }
+    .btn-outline { background: transparent; color: var(--green); border-color: var(--green); }
+    .btn-outline:hover { background: var(--green); color: var(--white); transform: translateY(-1px); }
+    .btn-gold { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .btn-gold:hover { background: #a8872e; border-color: #a8872e; transform: translateY(-1px); }
+
+    .divider { width: 60px; height: 3px; background: var(--gold); margin: 20px 0 32px; }
+
+    /* ── NAVBAR ── */
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(250,249,246,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s; }
+    #navbar.scrolled { box-shadow: var(--shadow); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 90px; max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo-img { height: 72px; width: auto; display: block; object-fit: contain; max-width: 260px; filter: drop-shadow(0 2px 8px rgba(45,106,79,0.18)); }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--ink-soft); padding: 6px 13px; border-radius: 4px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: var(--green); background: var(--green-pale); }
+    .nav-cta { margin-left: 10px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 90px; left: 0; right: 0; background: var(--cream); border-bottom: 1px solid var(--border); padding: 20px 24px 28px; z-index: 999; flex-direction: column; gap: 4px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1rem; font-weight: 500; color: var(--ink); padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .mobile-menu .btn { margin-top: 12px; width: 100%; justify-content: center; }
+
+    /* ── HERO BANNER ── */
+    .initiative-hero { padding-top: 90px; background: linear-gradient(145deg, #00A85A, #c9873e); position: relative; overflow: hidden; }
+    .initiative-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 28px 28px; }
+    .initiative-hero-inner { position: relative; z-index: 2; padding: 72px 0 64px; }
+    .hero-back { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: 0.05em; margin-bottom: 28px; transition: color 0.2s; }
+    .hero-back:hover { color: var(--white); }
+    .hero-back svg { width: 14px; height: 14px; }
+    .initiative-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-light); background: rgba(255,255,255,0.12); padding: 5px 16px; border-radius: 40px; margin-bottom: 20px; }
+    .initiative-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5.5vw, 4rem); font-weight: 700; color: var(--white); line-height: 1.1; margin-bottom: 8px; }
+    .initiative-hero .acronym-full { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 400; color: rgba(255,255,255,0.72); margin-bottom: 24px; line-height: 1.6; }
+    .initiative-hero .lead { font-size: 1.05rem; color: rgba(255,255,255,0.85); max-width: 680px; line-height: 1.85; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+    .hero-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.88); background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 40px; }
+    .hero-chip svg { width: 12px; height: 12px; }
+
+    /* ── ARTICLE BODY ── */
+    .article-body { padding: 72px 0 96px; }
+    .article-content { font-size: 1rem; color: var(--ink-soft); line-height: 1.9; }
+    .article-content h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 2.8vw, 2.1rem); font-weight: 700; color: var(--ink); margin: 48px 0 16px; }
+    .article-content h2:first-child { margin-top: 0; }
+    .article-content h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.15rem, 2vw, 1.45rem); font-weight: 600; color: var(--ink); margin: 32px 0 12px; }
+    .article-content p { margin-bottom: 20px; }
+    .article-content strong { color: var(--ink); font-weight: 600; }
+    .article-content ul { list-style: none; margin: 0 0 20px 0; display: flex; flex-direction: column; gap: 10px; }
+    .article-content ul li { padding-left: 22px; position: relative; }
+    .article-content ul li::before { content: ''; position: absolute; left: 0; top: 11px; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight-box { background: var(--green-pale); border-left: 4px solid var(--green); border-radius: 0 12px 12px 0; padding: 24px 28px; margin: 32px 0; }
+    .highlight-box p { margin: 0; color: var(--ink); font-style: italic; font-size: 1.05rem; line-height: 1.8; }
+
+    /* ── PILLARS ── */
+    .pillars-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+    .pillar-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .pillar-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--green); opacity: 0.3; line-height: 1; margin-bottom: 8px; }
+    .pillar-card strong { display: block; font-size: 0.92rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .pillar-card span { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.65; }
+
+    /* ── ACTIVITY CARDS ── */
+    .activity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+    .activity-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 22px; display: flex; gap: 14px; align-items: flex-start; }
+    .activity-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--green-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .activity-icon svg { width: 18px; height: 18px; color: var(--green); }
+    .activity-card strong { display: block; font-size: 0.88rem; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+    .activity-card span { font-size: 0.8rem; color: var(--ink-soft); line-height: 1.6; }
+
+    /* ── CTA FOOTER ── */
+    .initiative-cta { background: linear-gradient(135deg, #00A85A, #2d6a4f); border-radius: 20px; padding: 56px 48px; text-align: center; margin-top: 64px; position: relative; overflow: hidden; }
+    .initiative-cta::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 24px 24px; }
+    .initiative-cta h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; color: var(--white); margin-bottom: 12px; position: relative; }
+    .initiative-cta p { color: rgba(255,255,255,0.78); font-size: 0.95rem; max-width: 500px; margin: 0 auto 32px; line-height: 1.8; position: relative; }
+    .initiative-cta .cta-buttons { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; position: relative; }
+
+    /* ── BACK LINK ── */
+    .back-to-pipeline { display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 600; color: var(--green); border: 1.5px solid var(--green); padding: 10px 20px; border-radius: 4px; transition: all 0.2s; margin-bottom: 48px; }
+    .back-to-pipeline:hover { background: var(--green); color: var(--white); }
+    .back-to-pipeline svg { width: 14px; height: 14px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--ink); color: rgba(255,255,255,0.72); padding: 48px 0 28px; }
+    .footer-simple { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-simple p { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+    .footer-simple a { font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+    .footer-simple a:hover { color: var(--green-light); }
+    .footer-links-row { display: flex; gap: 20px; flex-wrap: wrap; }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .activity-grid { grid-template-columns: 1fr; }
+      .initiative-cta { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="E4D_Ghana.jpg" alt="Empower for Development Ghana" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#interventions">Our Work</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#pipeline">Pipeline</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <a href="index.html#contact" class="btn btn-primary nav-cta">Get Involved</a>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#about" onclick="closeMenu()">About</a>
+    <a href="index.html#interventions" onclick="closeMenu()">Our Work</a>
+    <a href="index.html#projects" onclick="closeMenu()">Projects</a>
+    <a href="index.html#pipeline" onclick="closeMenu()">Pipeline</a>
+    <a href="index.html#news" onclick="closeMenu()">News</a>
+    <a href="index.html#contact" onclick="closeMenu()">Contact</a>
+    <a href="index.html#contact" class="btn btn-primary">Get Involved</a>
+  </div>
+
+  <!-- HERO -->
+  <header class="initiative-hero">
+    <div class="container initiative-hero-inner">
+      <a href="index.html#pipeline" class="hero-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Back to Project Pipeline
+      </a>
+      <div class="initiative-tag">Project Pipeline · Seeking Partners</div>
+      <h1>RESILIENT–Ghana</h1>
+      <p class="acronym-full"><strong style="color:var(--gold-light);">A youth-led climate justice and peacebuilding initiative for Northern Ghana</strong></p>
+      <p class="lead">Addressing climate-driven tensions between farmers and Fulbe herders by training Climate Justice Ambassadors and mobilising communities for climate literacy, sustainable resource use, and peaceful coexistence.</p>
+      <div class="hero-chips">
+        <span class="hero-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Northern Ghana
+        </span>
+        <span class="hero-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Climate Justice
+        </span>
+        <span class="hero-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          Youth Ambassadors
+        </span>
+        <span class="hero-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          Civil Society Partners
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ARTICLE BODY -->
+  <main class="article-body">
+    <div class="container">
+
+      <a href="index.html#pipeline" class="back-to-pipeline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Back to All Pipeline Projects
+      </a>
+
+      <div class="article-content">
+
+        <h2>Overview</h2>
+        <p>RESILIENT–Ghana is a youth-led climate justice and peacebuilding initiative developed by Empower for Development Ghana (E4D Ghana). The project addresses the intersection of <strong>climate change and community conflict</strong>, targeting the climate-driven tensions between farmers and Fulbe herders in selected districts across Northern Ghana.</p>
+        <p>By training <strong>Climate Justice Ambassadors</strong> and mobilising communities through intergenerational dialogues, restorative healing circles, and community sports, RESILIENT–Ghana promotes climate literacy, sustainable natural resource use, and peaceful coexistence — while building communities' collective capacity to adapt to climate change.</p>
+
+        <div class="highlight-box">
+          <p>"Climate change does not just change weather — it changes relationships, tensions, and livelihoods. RESILIENT–Ghana addresses conflict and climate as the intertwined crises they are."</p>
+        </div>
+
+        <h2>The Challenge</h2>
+        <p>Northern Ghana is experiencing increasingly severe climate impacts: erratic rainfall, prolonged droughts, and rapid land degradation are shrinking the natural resources that both farming and herding communities depend on. This intensifying scarcity is a primary driver of conflict, as competition for land, water, and pasture grows between communities.</p>
+        <p>Yet most peacebuilding interventions in the region treat conflict as a social problem alone, ignoring its environmental and climate dimensions. And most climate adaptation programmes ignore the conflict context that makes communities vulnerable. RESILIENT–Ghana is designed to bridge this gap — addressing both simultaneously through a youth-centred, community-driven approach.</p>
+
+        <h2>Three Integrated Pillars</h2>
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <div class="pillar-num">01</div>
+            <strong>Climate Justice &amp; Education</strong>
+            <span>Building climate literacy among youth, farmers, and herders, with a focus on how climate change drives resource competition and community tensions — and what communities can do about it.</span>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-num">02</div>
+            <strong>Peacebuilding &amp; Reconciliation</strong>
+            <span>Using restorative dialogues, healing circles, and community sports to reduce tensions, rebuild trust, and create shared spaces for conflict prevention and resolution.</span>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-num">03</div>
+            <strong>Sustainable Resource Management</strong>
+            <span>Supporting communities to jointly develop and adopt sustainable practices for managing shared natural resources — reducing the competition that underlies conflict.</span>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-num">04</div>
+            <strong>Youth Leadership</strong>
+            <span>Training and deploying Climate Justice Ambassadors — young people from farming and herding backgrounds — as the primary agents of change in their own communities.</span>
+          </div>
+        </div>
+
+        <h2>Key Activities</h2>
+        <div class="activity-grid">
+          <div class="activity-card">
+            <div class="activity-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <strong>Climate Justice Ambassador Training</strong>
+              <span>Intensive training for youth on climate science, justice advocacy, facilitation, and sustainable resource management.</span>
+            </div>
+          </div>
+          <div class="activity-card">
+            <div class="activity-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            </div>
+            <div>
+              <strong>Intergenerational Dialogues</strong>
+              <span>Structured dialogues across generations and communities to explore the climate–conflict nexus and develop shared solutions.</span>
+            </div>
+          </div>
+          <div class="activity-card">
+            <div class="activity-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div>
+              <strong>Restorative Healing Circles</strong>
+              <span>Facilitated circles to address harm, grief, and trauma from climate and conflict impacts, and to rebuild relationships between communities.</span>
+            </div>
+          </div>
+          <div class="activity-card">
+            <div class="activity-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+            </div>
+            <div>
+              <strong>Community Sports for Peace</strong>
+              <span>Cross-community tournaments designed to foster friendships, reduce prejudice, and build a sense of shared identity across farmer–herder divides.</span>
+            </div>
+          </div>
+          <div class="activity-card">
+            <div class="activity-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div>
+              <strong>Resource Management Workshops</strong>
+              <span>Practical workshops with farmers and herders on climate-smart land and water management, co-developed with community input.</span>
+            </div>
+          </div>
+          <div class="activity-card">
+            <div class="activity-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            </div>
+            <div>
+              <strong>Civil Society Partnerships</strong>
+              <span>Collaboration with local civil society organisations, traditional authorities, and district assemblies to anchor and sustain the project's impact.</span>
+            </div>
+          </div>
+        </div>
+
+        <h2>Expected Outcomes</h2>
+        <ul>
+          <li>Trained Climate Justice Ambassadors active in target communities across Northern Ghana</li>
+          <li>Reduced climate-driven farmer–herder conflicts in project communities</li>
+          <li>Improved climate literacy and adaptive capacity among target communities</li>
+          <li>Stronger social cohesion and trust across farming and herding communities</li>
+          <li>Joint community agreements on sustainable management of shared natural resources</li>
+          <li>Greater youth and women leadership in both climate action and peacebuilding</li>
+          <li>A documented, evidence-based model for addressing the climate–conflict nexus in Northern Ghana</li>
+        </ul>
+
+        <h2>Why RESILIENT–Ghana Matters</h2>
+        <p>The climate–conflict nexus is one of the most pressing and least addressed challenges in Northern Ghana. Communities that once managed their differences are finding it harder to do so as climate change shrinks the resources they depend on. Young people — who make up the majority of the population — are disproportionately affected and yet hold the greatest potential to drive change.</p>
+        <p>RESILIENT–Ghana places youth at the intersection of two of the region's most urgent challenges: climate change and conflict. By addressing them together — not separately — the project works toward a future where communities are not just less violent, but genuinely more resilient.</p>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="initiative-cta">
+        <h2>Partner with Us to Fund RESILIENT–Ghana</h2>
+        <p>We are actively seeking funding partners, institutional donors, and strategic collaborators to bring this initiative to communities across Northern Ghana.</p>
+        <div class="cta-buttons">
+          <a href="index.html#contact" class="btn" style="background:var(--white);color:var(--green);border-color:var(--white);font-weight:700;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Get in Touch
+          </a>
+          <a href="mailto:e4dghana@gmail.com" class="btn btn-gold">Donate to E4D Ghana</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container-wide">
+      <div class="footer-simple">
+        <p>&copy; 2026 Empower for Development Ghana. All rights reserved.</p>
+        <div class="footer-links-row">
+          <a href="index.html">Home</a>
+          <a href="index.html#pipeline">Project Pipeline</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="mailto:e4dghana@gmail.com">e4dghana@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 40); });
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+    function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+  </script>
+</body>
+</html>
