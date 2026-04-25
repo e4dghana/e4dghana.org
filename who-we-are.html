@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Who We Are — Empower for Development Ghana</title>
+  <meta name="description" content="Learn about E4D Ghana — our mission, vision, values, and the partners who help us empower youth and communities across Northern Ghana." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: #1a1a2e; background: #faf9f6; line-height: 1.7; overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --green: #00A85A; --green-light: #52b788; --green-pale: #d8f3dc;
+      --gold: #c9a84c; --gold-light: #f4d98e;
+      --ink: #1a1a2e; --ink-soft: #3d3d5c;
+      --cream: #faf9f6; --white: #ffffff;
+      --border: rgba(45,106,79,0.15);
+      --shadow: 0 4px 32px rgba(26,26,46,0.08);
+      --shadow-lg: 0 16px 64px rgba(26,26,46,0.14);
+    }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 96px 0; }
+
+    .tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); background: var(--green-pale); padding: 4px 14px; border-radius: 40px; margin-bottom: 16px; }
+    .heading-xl { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 5.5vw, 4.6rem); font-weight: 700; line-height: 1.1; color: var(--ink); }
+    .heading-lg { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 3.8vw, 3rem); font-weight: 600; line-height: 1.2; color: var(--ink); }
+    .heading-md { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.25rem, 2vw, 1.7rem); font-weight: 600; line-height: 1.3; }
+    .lead { font-size: 1.1rem; color: var(--ink-soft); line-height: 1.85; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.03em; cursor: pointer; transition: all 0.25s ease; border: 2px solid transparent; }
+    .btn-primary { background: #00A85A; color: var(--white); border-color: #00A85A; }
+    .btn-primary:hover { background: #008a48; border-color: #008a48; transform: translateY(-1px); box-shadow: var(--shadow); }
+    .btn-outline { background: transparent; color: var(--green); border-color: var(--green); }
+    .btn-outline:hover { background: var(--green); color: var(--white); transform: translateY(-1px); }
+    .btn-gold { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .btn-gold:hover { background: #a8872e; border-color: #a8872e; transform: translateY(-1px); box-shadow: var(--shadow); }
+
+    .divider { width: 60px; height: 3px; background: var(--gold); margin: 20px 0 32px; }
+    .divider-center { margin-left: auto; margin-right: auto; }
+
+    /* ── NAVBAR ── */
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(250,249,246,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s; }
+    #navbar.scrolled { box-shadow: var(--shadow); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 90px; }
+    .nav-logo-img { height: 72px; width: auto; display: block; object-fit: contain; max-width: 260px; background: transparent; filter: drop-shadow(0 2px 8px rgba(45,106,79,0.18)); }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--ink-soft); padding: 6px 13px; border-radius: 4px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--green); background: var(--green-pale); }
+    .nav-cta { margin-left: 10px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: all 0.3s; }
+    .mobile-menu { display: none; position: fixed; top: 90px; left: 0; right: 0; background: var(--cream); border-bottom: 1px solid var(--border); padding: 20px 24px 28px; z-index: 999; flex-direction: column; gap: 4px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1rem; font-weight: 500; color: var(--ink); padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .mobile-menu .btn { margin-top: 12px; width: 100%; justify-content: center; }
+
+    /* ── PAGE HERO ── */
+    .page-hero { padding: 160px 0 80px; position: relative; overflow: hidden; background: linear-gradient(160deg, #faf9f6 0%, #f0ede6 100%); }
+    .page-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 80% 40%, rgba(82,183,136,0.12) 0%, transparent 70%), radial-gradient(ellipse 50% 70% at 10% 90%, rgba(201,168,76,0.07) 0%, transparent 60%); }
+    .page-hero-pattern { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(45,106,79,0.06) 1px, transparent 1px); background-size: 32px 32px; opacity: 0.5; }
+    .page-hero-inner { position: relative; z-index: 2; max-width: 760px; }
+    .page-hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; animation: fadeUp 0.8s ease both; }
+    .hero-line { width: 40px; height: 2px; background: var(--gold); }
+    .hero-eyebrow-text { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+    .page-hero h1 { animation: fadeUp 0.8s 0.1s ease both; margin-bottom: 20px; }
+    .page-hero h1 .accent { color: var(--green); font-style: italic; }
+    .page-hero .lead { animation: fadeUp 0.8s 0.2s ease both; max-width: 620px; }
+    .page-hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; animation: fadeUp 0.8s 0.3s ease both; }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 28px; animation: fadeUp 0.8s ease both; }
+    .breadcrumb a { color: var(--green); font-weight: 500; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb-sep { color: var(--gold); }
+
+    /* ── SECTION HEADER ── */
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-header .divider { margin-left: auto; margin-right: auto; }
+    .section-header .heading-lg { max-width: 680px; margin: 0 auto; }
+
+    /* ── MISSION & VISION ── */
+    .mv-row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 28px; }
+    .mv-card { border-radius: 18px; padding: 44px 40px; position: relative; overflow: hidden; }
+    .mv-card-mission { background: linear-gradient(135deg, #00A85A 0%, #2d6a4f 100%); }
+    .mv-card-vision  { background: linear-gradient(135deg, #1a6e42 0%, #00A85A 100%); }
+    .mv-card::before { content: ''; position: absolute; right: -40px; top: -40px; width: 180px; height: 180px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+    .mv-card::after  { content: ''; position: absolute; right: 20px; bottom: -60px; width: 220px; height: 220px; border-radius: 50%; background: rgba(255,255,255,0.03); }
+    .mv-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 18px; }
+    .mv-label-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+    .mv-card h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--white); line-height: 1.25; margin-bottom: 0; position: relative; z-index: 1; }
+    .mv-card-icon { width: 52px; height: 52px; border-radius: 12px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; position: relative; z-index: 1; }
+    .mv-card-icon svg { width: 26px; height: 26px; color: var(--gold-light); }
+
+    /* ── VALUES ── */
+    .values-block { background: var(--cream); border: 1px solid var(--border); border-radius: 18px; padding: 48px; }
+    .values-block h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: var(--ink); margin-bottom: 32px; }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .value-item { display: flex; flex-direction: column; gap: 10px; }
+    .value-item-header { display: flex; align-items: center; gap: 12px; }
+    .value-icon { width: 38px; height: 38px; border-radius: 10px; background: var(--green-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .value-icon svg { width: 18px; height: 18px; color: var(--green); }
+    .value-item strong { font-size: 0.92rem; font-weight: 700; color: var(--ink); }
+    .value-item span { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.7; padding-left: 50px; }
+
+    /* ── STORY SECTION ── */
+    #story { background: var(--white); }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .story-visual { position: relative; }
+    .story-card-main { background: linear-gradient(135deg, #00A85A, #2d6a4f); border-radius: 20px; padding: 48px 40px; color: var(--white); }
+    .story-card-main .story-big-num { font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; font-weight: 700; color: rgba(255,255,255,0.18); line-height: 1; display: block; margin-bottom: -12px; }
+    .story-card-main h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+    .story-card-main p { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.8; }
+    .story-stats-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 20px; }
+    .story-stat { background: rgba(255,255,255,0.1); border-radius: 12px; padding: 18px 14px; text-align: center; }
+    .story-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--gold-light); line-height: 1; }
+    .story-stat-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 6px; }
+    .story-content .tag { margin-bottom: 12px; }
+    .story-content .heading-lg { margin-bottom: 20px; }
+    .story-content p { color: var(--ink-soft); margin-bottom: 18px; font-size: 0.97rem; line-height: 1.85; }
+    .story-content p:last-of-type { margin-bottom: 28px; }
+
+    /* ── PARTNERS ── */
+    #partners { background: var(--cream); }
+    .partners-intro { max-width: 600px; margin: 0 auto 56px; text-align: center; }
+    .partners-intro p { color: var(--ink-soft); margin-top: 14px; }
+    .partners-grid-full { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .partner-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 24px 20px; display: flex; align-items: flex-start; gap: 16px; transition: box-shadow 0.2s, transform 0.2s; }
+    .partner-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+    .partner-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--green-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .partner-icon svg { width: 20px; height: 20px; color: var(--green); }
+    .partner-name { font-size: 0.9rem; font-weight: 700; color: var(--ink); line-height: 1.3; margin-bottom: 4px; }
+    .partner-type { font-size: 0.72rem; color: var(--green); font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; }
+
+    /* ── CTA STRIP ── */
+    .cta-strip { background: linear-gradient(135deg, #00A85A 0%, #2d6a4f 60%, #52b788 100%); border-radius: 20px; padding: 56px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .cta-strip h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; color: var(--white); max-width: 480px; line-height: 1.25; }
+    .cta-strip p { color: rgba(255,255,255,0.75); font-size: 0.92rem; margin-top: 8px; }
+    .cta-strip-actions { display: flex; gap: 12px; flex-shrink: 0; flex-wrap: wrap; }
+    .btn-white { background: var(--white); color: var(--green); border-color: var(--white); font-weight: 700; }
+    .btn-white:hover { background: var(--green-pale); border-color: var(--green-pale); transform: translateY(-1px); }
+    .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.6); }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--ink); color: rgba(255,255,255,0.72); padding: 72px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+    .footer-logo-link { display: inline-block; margin-bottom: 16px; }
+    .footer-logo-img { height: 52px; width: auto; object-fit: contain; display: block; filter: brightness(0) invert(1); }
+    .footer-tagline { font-size: 0.875rem; line-height: 1.85; margin-top: 16px; color: rgba(255,255,255,0.72); }
+    .footer-social { display: flex; gap: 10px; margin-top: 24px; }
+    .social-btn { width: 38px; height: 38px; border-radius: 8px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .social-btn:hover { background: var(--green); }
+    .social-btn svg { width: 16px; height: 16px; color: rgba(255,255,255,0.75); }
+    .footer-col h4 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 20px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.56); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--green-light); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.38); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .mv-row { grid-template-columns: 1fr; }
+      .story-grid { grid-template-columns: 1fr; gap: 48px; }
+      .partners-grid-full { grid-template-columns: repeat(2, 1fr); }
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .values-grid { grid-template-columns: 1fr; }
+      .partners-grid-full { grid-template-columns: 1fr; }
+      .cta-strip { padding: 36px 28px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 600px) {
+      .mv-card { padding: 32px 24px; }
+      .values-block { padding: 32px 24px; }
+      .story-stats-row { grid-template-columns: 1fr 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <img src="E4D_Ghana.jpg" alt="Empower for Development Ghana" class="nav-logo-img" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="who-we-are.html" class="active">Who We Are</a></li>
+          <li><a href="who-we-serve.html">Who We Serve</a></li>
+          <li><a href="our-work.html">Our Work</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="index.html#pipeline">Pipeline</a></li>
+          <li><a href="index.html#testimonials">Youth Voices</a></li>
+          <li><a href="index.html#news">News &amp; Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="index.html#cta" class="btn btn-gold nav-cta">Donate</a>
+        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="who-we-are.html" onclick="closeMenu()">Who We Are</a>
+    <a href="who-we-serve.html" onclick="closeMenu()">Who We Serve</a>
+    <a href="our-work.html" onclick="closeMenu()">Our Work</a>
+    <a href="index.html#projects" onclick="closeMenu()">Projects</a>
+    <a href="index.html#pipeline" onclick="closeMenu()">Pipeline</a>
+    <a href="index.html#testimonials" onclick="closeMenu()">Youth Voices</a>
+    <a href="index.html#news" onclick="closeMenu()">News &amp; Blog</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
+    <a href="index.html#cta" class="btn btn-gold" onclick="closeMenu()">Donate</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-pattern"></div>
+    <div class="container">
+      <div class="page-hero-inner">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep">›</span>
+          <span>Who We Are</span>
+        </div>
+        <div class="page-hero-eyebrow">
+          <div class="hero-line"></div>
+          <span class="hero-eyebrow-text">About E4D Ghana</span>
+        </div>
+        <h1 class="heading-xl">
+          Youth-Founded.<br>
+          <span class="accent">Community-Rooted.</span><br>
+          Change-Driven.
+        </h1>
+        <p class="lead" style="margin-top: 20px;">
+          Empower for Development Ghana (E4D Ghana) is a youth-led civil society organisation working to build climate-resilient livelihoods and active citizenship across Northern Ghana — through education, digital skills, entrepreneurship, and peacebuilding.
+        </p>
+        <div class="page-hero-actions">
+          <a href="#mission" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            Our Mission &amp; Vision
+          </a>
+          <a href="#story" class="btn btn-outline">Our Story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section id="mission" class="section" style="background: var(--white);">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="tag">Mission &amp; Vision</span>
+        <h2 class="heading-lg">The purpose and future we are building toward.</h2>
+        <div class="divider divider-center"></div>
+      </div>
+
+      <div class="mv-row fade-in-up">
+        <div class="mv-card mv-card-mission">
+          <div class="mv-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="mv-label"><span class="mv-label-dot"></span>Our Mission</div>
+          <h3>To work for and with children, women, young people and individuals with low skills and our partners to cause positive changes at individual and systemic levels.</h3>
+        </div>
+        <div class="mv-card mv-card-vision">
+          <div class="mv-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="mv-label"><span class="mv-label-dot"></span>Our Vision</div>
+          <h3>A society where children, women, young people (including NEETs) and individuals with low skills are empowered to contribute meaningfully to sustainable national and global development.</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section id="story" class="section" style="background: var(--cream);">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-visual fade-in-up">
+          <div class="story-card-main">
+            <span class="story-big-num">E4D</span>
+            <h3>Empower for Development Ghana</h3>
+            <p>Founded by young Ghanaians who saw firsthand how lack of access to education, skills, and opportunity holds communities back — and decided to act.</p>
+            <div class="story-stats-row">
+              <div class="story-stat">
+                <div class="story-stat-num">2,000+</div>
+                <div class="story-stat-label">Youth Reached</div>
+              </div>
+              <div class="story-stat">
+                <div class="story-stat-num">25+</div>
+                <div class="story-stat-label">Communities</div>
+              </div>
+              <div class="story-stat">
+                <div class="story-stat-num">5</div>
+                <div class="story-stat-label">Projects</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="story-content fade-in-up">
+          <span class="tag">Our Story</span>
+          <h2 class="heading-lg">Local youth solving local problems.</h2>
+          <p>E4D Ghana was born from a simple but powerful conviction: that the most effective solutions to the challenges facing Northern Ghana's communities must come from within those communities themselves.</p>
+          <p>As a youth-founded, youth-led, and youth-serving organisation, we believe young people are not just beneficiaries of development — they are its most vital agents. We design our programmes to unlock that potential, providing the skills, platforms, and networks that allow young Ghanaians to lead.</p>
+          <p>Across five interconnected programme pillars — education, digital literacy, social entrepreneurship, environmental sustainability, and peacebuilding — we work hand-in-hand with communities, partners, and government to create lasting, systemic change.</p>
+          <a href="index.html#interventions" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            See Our Work
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR VALUES -->
+  <section id="values" class="section" style="background: var(--white);">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="tag">Our Values</span>
+        <h2 class="heading-lg">The principles that guide everything we do.</h2>
+        <div class="divider divider-center"></div>
+      </div>
+
+      <div class="values-block fade-in-up">
+        <div class="values-grid">
+
+          <div class="value-item">
+            <div class="value-item-header">
+              <div class="value-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              </div>
+              <strong>Youth Leadership</strong>
+            </div>
+            <span>Young people lead at every level — from design to delivery.</span>
+          </div>
+
+          <div class="value-item">
+            <div class="value-item-header">
+              <div class="value-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+              </div>
+              <strong>Community-Driven</strong>
+            </div>
+            <span>Solutions rooted in the real needs of Northern Ghana's communities.</span>
+          </div>
+
+          <div class="value-item">
+            <div class="value-item-header">
+              <div class="value-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20"/></svg>
+              </div>
+              <strong>Inclusivity</strong>
+            </div>
+            <span>Gender equity, disability inclusion, and representation for all.</span>
+          </div>
+
+          <div class="value-item">
+            <div class="value-item-header">
+              <div class="value-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <strong>Empowerment</strong>
+            </div>
+            <span>Build agency and leadership in those we serve and employ.</span>
+          </div>
+
+          <div class="value-item">
+            <div class="value-item-header">
+              <div class="value-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <strong>Localisation</strong>
+            </div>
+            <span>Use local knowledge, expertise, and resources to address pressing community challenges.</span>
+          </div>
+
+          <div class="value-item">
+            <div class="value-item-header">
+              <div class="value-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <strong>Accountability</strong>
+            </div>
+            <span>Transparent in our results, honest with our communities and partners.</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section id="partners" class="section" style="background: var(--cream);">
+    <div class="container">
+      <div class="partners-intro fade-in-up">
+        <span class="tag">Our Partners</span>
+        <h2 class="heading-lg">The organisations who walk alongside us.</h2>
+        <p>E4D Ghana works with a range of implementation, funding, and technical partners who share our commitment to youth-led development across Northern Ghana.</p>
+      </div>
+
+      <div class="partners-grid-full">
+
+        <div class="partner-card fade-in-up">
+          <div class="partner-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div>
+            <div class="partner-name">GIZ Ghana</div>
+            <div class="partner-type">Implementation Partner</div>
+          </div>
+        </div>
+
+        <div class="partner-card fade-in-up">
+          <div class="partner-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          </div>
+          <div>
+            <div class="partner-name">Northern Regional Coordinating Council</div>
+            <div class="partner-type">Government Partner</div>
+          </div>
+        </div>
+
+        <div class="partner-card fade-in-up">
+          <div class="partner-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <div class="partner-name">UNFPA Ghana</div>
+            <div class="partner-type">UN Agency Partner</div>
+          </div>
+        </div>
+
+        <div class="partner-card fade-in-up">
+          <div class="partner-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="partner-name">Ghana Education Service</div>
+            <div class="partner-type">Government Partner</div>
+          </div>
+        </div>
+
+        <div class="partner-card fade-in-up">
+          <div class="partner-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div>
+            <div class="partner-name">University for Development Studies</div>
+            <div class="partner-type">Academic Partner</div>
+          </div>
+        </div>
+
+        <div class="partner-card fade-in-up">
+          <div class="partner-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="partner-name">Local Civil Society Organisations</div>
+            <div class="partner-type">Community Partners</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section class="section" style="background: var(--white);">
+    <div class="container">
+      <div class="cta-strip fade-in-up">
+        <div>
+          <h2>Ready to join us in empowering communities?</h2>
+          <p>Whether you're a donor, partner, volunteer, or youth leader — there's a place for you in our work.</p>
+        </div>
+        <div class="cta-strip-actions">
+          <a href="contact.html" class="btn btn-white">Get Involved</a>
+          <a href="index.html#cta" class="btn btn-outline-white">Donate Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link">
+            <img src="E4D_Ghana.jpg" alt="Empower for Development Ghana" class="footer-logo-img" />
+          </a>
+          <p class="footer-tagline">Youth-founded, youth-led, youth-serving. Empowering communities across Northern Ghana through education, livelihoods, climate justice, and peacebuilding.</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/share/18JAAP9jDX/" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://x.com/e4dghana" target="_blank" rel="noopener" class="social-btn" aria-label="X (Twitter)">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            </a>
+            <a href="https://instagram.com/e4dghana" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="who-we-are.html">About Us</a></li>
+            <li><a href="index.html#projects">Our Projects</a></li>
+            <li><a href="contact.html">Opportunities</a></li>
+            <li><a href="index.html#news">News &amp; Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html#cta">Donate</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Our Work</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#interventions">Education &amp; Learning</a></li>
+            <li><a href="index.html#interventions">ICT &amp; Digital Skills</a></li>
+            <li><a href="index.html#interventions">Social Entrepreneurship</a></li>
+            <li><a href="index.html#interventions">Environmental Sustainability</a></li>
+            <li><a href="index.html#interventions">Peacebuilding</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="#">Tamale, Northern Region, Ghana</a></li>
+            <li><a href="mailto:e4dghana@gmail.com">e4dghana@gmail.com</a></li>
+            <li><a href="tel:+233246543238">+233 24 654 3238</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Empower for Development Ghana. All rights reserved.</p>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <a href="https://www.facebook.com/share/18JAAP9jDX/" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://x.com/e4dghana" target="_blank" rel="noopener" class="social-btn" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+          </a>
+          <a href="https://instagram.com/e4dghana" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 40); });
+
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+    function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const siblings = Array.from(entry.target.parentElement?.children || []);
+          const delay = siblings.indexOf(entry.target) * 80;
+          setTimeout(() => entry.target.classList.add('visible'), delay);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
